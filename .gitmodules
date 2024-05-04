@@ -1,0 +1,5 @@
+[submodule "themes/bougainvillea"]
+	path = themes/bougainvillea
+	url = https://github.com/aiclr/bougainvillea.git
+	branch = snapshot
+	ignore = dirty

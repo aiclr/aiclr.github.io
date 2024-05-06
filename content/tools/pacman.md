@@ -4,7 +4,7 @@ date = '2024-05-05'
 draft = true
 author = 'aiclr'
 categories = ['tools']
-tags = ['tools']
+tags = ['tools','archlinux']
 +++
 
 ## config

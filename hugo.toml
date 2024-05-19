@@ -11,12 +11,69 @@ theme = 'bougainvillea'
     hl_inline = false
     lineAnchors = ''
     lineNoStart = 1
-    lineNos = false
+    lineNos = true
     lineNumbersInTable = true
     noClasses = true
     noHl = false
-    style = 'monokailight'
+    style = 'github'
     tabWidth = 2
+  [markup.goldmark]
+    duplicateResourceFiles = false
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      linkifyProtocol = 'https'
+      strikethrough = true
+      table = true
+      taskList = true
+      [markup.goldmark.extensions.cjk]
+        eastAsianLineBreaks = false
+        eastAsianLineBreaksStyle = 'simple'
+        enable = false
+        escapedSpace = false
+      [markup.goldmark.extensions.extras]
+        [markup.goldmark.extensions.extras.insert]
+          enable = false
+        [markup.goldmark.extensions.extras.mark]
+          enable = false
+        [markup.goldmark.extensions.extras.subscript]
+          enable = false
+        [markup.goldmark.extensions.extras.superscript]
+          enable = false
+      [markup.goldmark.extensions.passthrough]
+        enable = false
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = []
+          inline = []
+      [markup.goldmark.extensions.typographer]
+        apostrophe = '&rsquo;'
+        disable = false
+        ellipsis = '&hellip;'
+        emDash = '&mdash;'
+        enDash = '&ndash;'
+        leftAngleQuote = '&laquo;'
+        leftDoubleQuote = '&ldquo;'
+        leftSingleQuote = '&lsquo;'
+        rightAngleQuote = '&raquo;'
+        rightDoubleQuote = '&rdquo;'
+        rightSingleQuote = '&rsquo;'
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = 'github'
+      wrapStandAloneImageWithinParagraph = true
+      [markup.goldmark.parser.attribute]
+        block = false
+        title = true
+    [markup.goldmark.renderHooks]
+      [markup.goldmark.renderHooks.image]
+        enableDefault = false
+      [markup.goldmark.renderHooks.link]
+        enableDefault = false
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = false
+      xhtml = false
 [taxonomies]
   category = 'categories'
   series = 'series'
@@ -43,30 +100,6 @@ theme = 'bougainvillea'
     pageRef = '/software'
     weight = 60
   [[menus.main]]
-    name = 'Tools'
-    pageRef = '/tools'
-    weight = 30
-  [[menus.footer]]
-    name = 'Home'
-    pageRef = '/'
-    weight = 10
-  [[menus.footer]]
-    name = 'Books'
-    pageRef = '/books'
-    weight = 40
-  [[menus.footer]]
-    name = 'Develop'
-    pageRef = '/develop'
-    weight = 20
-  [[menus.footer]]
-    name = 'OS'
-    pageRef = '/os'
-    weight = 50
-  [[menus.footer]]
-    name = 'Software'
-    pageRef = '/software'
-    weight = 60
-  [[menus.footer]]
     name = 'Tools'
     pageRef = '/tools'
     weight = 30

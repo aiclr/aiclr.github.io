@@ -13,7 +13,7 @@ Summary = "The pacman package manager is one of the major distinguishing feature
 
 **mirrorlist** */etc/pacman.d/mirrorlist*
 
-[配置文件 */etc/pacman.conf*](./conf/pacman.conf)
+[配置文件 */etc/pacman.conf*](conf/pacman.conf)
 
 更新时忽略包 ***vim /etc/pacman.conf*** 进行如下配置
 

@@ -2,6 +2,7 @@ baseURL = 'https://aiclr.github.io'
 languageCode = 'en-us'
 title = 'aiclr'
 theme = 'bougainvillea'
+staticDir = ['conf']
 [markup]
   [markup.highlight]
     anchorLineNos = false
@@ -63,7 +64,7 @@ theme = 'bougainvillea'
       autoHeadingIDType = 'github'
       wrapStandAloneImageWithinParagraph = true
       [markup.goldmark.parser.attribute]
-        block = false
+        block = true
         title = true
     [markup.goldmark.renderHooks]
       [markup.goldmark.renderHooks.image]

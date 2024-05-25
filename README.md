@@ -9,3 +9,5 @@ local run with draft `hugo server -D --gc --minify`
 build `hugo --gc --minify`
 
 create new post `hugo new content --kind tools tools/xxx.md`
+
+create new post `hugo new content --kind subdirectory tools/xxx`

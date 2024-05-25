@@ -1,5 +1,5 @@
 +++
-title = 'On_my_zsh'
+title = 'oh_my_zsh'
 date = '2024-05-25'
 draft = true
 author = 'aiclr'
@@ -7,8 +7,6 @@ categories = ['tools','archlinux']
 tags = ['tools','bash']
 Summary='Zsh is a powerful shell that operates as both an interactive shell and as a scripting language interpreter.'
 +++
-
-## Oh My Zsh 
 
 [github](https://github.com/ohmyzsh/ohmyzsh)\
 config file: [~/.zshrc](conf/zshrc)

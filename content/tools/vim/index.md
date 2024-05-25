@@ -7,8 +7,6 @@ tags = ['tools']
 Summary = 'Vim is a terminal text editor. It is an extended version of vi with additional features, including syntax highlighting, a comprehensive help system, native scripting (Vim script), a visual mode for text selection, comparison of files (vimdiff(1)), and tools with restricted capabilities such as rview(1) and rvim(1).'
 +++
 
-## vim
-
 |vim||||
 |:---|:---|:---|:---|
 |insert model||||

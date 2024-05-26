@@ -66,7 +66,7 @@ file path
 - /etc/systemd/system/update-system.service
 
 update-system.timer
-```sh
+```properties
 [Unit]
 Description=update system weekly
 
@@ -78,7 +78,7 @@ WantedBy=timers.target
 ```
 
 update-system.service
-```sh
+```properties
 [Unit]
 Description=update system weekly
 

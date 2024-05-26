@@ -3,7 +3,7 @@ title = 'nmap'
 date = '2024-05-25'
 draft = true
 author = 'aiclr'
-categories = ['tools']
+categories = ['software']
 tags = ['nmap','archlinux']
 Summary='Nmap (“Network Mapper”) is an open source tool for network exploration and security auditing. It was designed to rapidly scan large networks, although it works fine against single hosts.'
 +++

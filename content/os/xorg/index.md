@@ -1,7 +1,6 @@
 +++
 title = 'Xorg'
 date = '2024-05-25'
-draft = true
 author = 'aiclr'
 categories = ['os']
 tags = ['xorg','archlinux']

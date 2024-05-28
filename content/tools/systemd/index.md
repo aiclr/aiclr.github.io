@@ -1,7 +1,6 @@
 +++
 title = 'Systemd'
 date = '2024-05-25'
-draft = true
 author = 'aiclr'
 categories = ['tools']
 tags = ['systemd','archlinux']

@@ -1,7 +1,6 @@
 +++
 title = 'nmap'
 date = '2024-05-25'
-draft = true
 author = 'aiclr'
 categories = ['software']
 tags = ['nmap','archlinux']

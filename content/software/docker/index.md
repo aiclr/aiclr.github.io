@@ -1,7 +1,6 @@
 +++
 title = 'Docker'
 date = '2024-05-25'
-draft = true
 author = 'aiclr'
 categories = ['software']
 tags = ['docker','archlinux']

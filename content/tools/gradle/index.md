@@ -1,7 +1,6 @@
 +++
 title = 'Gradle'
 date = '2024-06-02'
-draft = true
 author = 'aiclr'
 categories = ['tools']
 tags = ['gradle','groovy','java','kotlin']

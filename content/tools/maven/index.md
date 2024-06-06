@@ -1,7 +1,6 @@
 +++
 title = 'Maven'
 date = '2024-06-02'
-draft = true
 author = 'aiclr'
 categories = ['tools']
 tags = ['maven','java','apache']

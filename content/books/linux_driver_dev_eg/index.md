@@ -1,7 +1,6 @@
 +++
 title = 'Linux 驱动程序开发实例（第2版）'
 date = '2024-06-09'
-draft = true
 author = 'aiclr'
 categories = ['']
 tags = ['']

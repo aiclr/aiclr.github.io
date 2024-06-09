@@ -57,8 +57,8 @@ Summary='Emacs is an extensible, customizable, self-documenting real-time displa
 |C-e|Move to end of line|
 |M-a|Move back to beginning of sentence<sub>句子</sub>|
 |M-e|Move forward to end of sentence|
-|M-<|(META Less-than) moves to the beginning of the whole text. On most terminals, the "<" is above the comma<sub>逗号</sub>, so you must use the `shift` key to type it.  On these terminals you must use the `shift` key to type `M-<` also; without the `shift` key, you would be typing `M-comma`<sub>逗号</sub>.|
-|M->|(META Greater-than) moves to the end of the whole text. On most terminals, the "<" is above the comma<sub>逗号</sub>, so you must use the `shift` key to type it.  On these terminals you must use the `shift` key to type `M-<` also; without the `shift` key, you would be typing `M-comma`<sub>逗号</sub>.|
+|`M-<`|(META Less-than) moves to the beginning of the whole text. On most terminals, the "<" is above the comma<sub>逗号</sub>, so you must use the `shift` key to type it.  On these terminals you must use the `shift` key to type `M-<` also; without the `shift` key, you would be typing `M-comma`<sub>逗号</sub>.|
+|`M->`|(META Greater-than) moves to the end of the whole text. |
 |C-u|Most Emacs commands accept a numeric argument; for most commands, this serves as a repeat-count.  The way you give a command a repeat count is by typing `C-u` and then the digits before you type the command.  If you have a `META` (or `ALT`) key, there is another, alternative way to enter a numeric argument: type the digits while holding down the `META` key.|
 |C-u 8 C-f|&#8594;moves forward eight characters|
 |C-u 8 C-v|`C-v` and `M-v` are another kind of exception.  When given an argument,they scroll the text up or down by that many lines, rather than by a screenful.  For example, `C-u 8 C-v` scrolls by 8 lines.|

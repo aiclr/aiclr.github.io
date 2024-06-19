@@ -385,7 +385,7 @@ git log --pretty=oneline
 # 添加远程分支
 # 可以添加多个远程仓库 比如一份代码需要提交到两个仓库
 git remote add origin https://xxx/temp.git
-git remote
+git remote -v
 git fetch origin
 
 # gitlab 默认将 master 分支设置为 protect 不允许强制 push
@@ -504,6 +504,33 @@ git branch --move master main
 ## 将当前分支与远程 main 分支绑定
 git push --set-upstream origin main
 ```
+
+## [remote](https://git-scm.com/docs/git-remote)
+
+```sh
+# git remote [-v | --verbose]
+git remote -v
+
+# git remote add [-t <branch>] [-m <master>] [-f] [--[no-]tags] [--mirror=(fetch|push)] <name> <URL>
+git remote add origin_new xxx.git
+
+# git remote rename [--[no-]progress] <old> <new>
+git remote rename origin origin_bak
+
+# git remote remove <name>
+git remote remove origin
+
+# git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+# git remote set-branches [--add] <name> <branch>…​
+# git remote get-url [--push] [--all] <name>
+# git remote set-url [--push] <name> <newurl> [<oldurl>]
+# git remote set-url --add [--push] <name> <newurl>
+# git remote set-url --delete [--push] <name> <URL>
+# git remote [-v | --verbose] show [-n] <name>…​
+# git remote prune [-n | --dry-run] <name>…​
+# git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)…​]
+```
+
 
 ## [推荐阅读 git-flow 相关博客](https://www.cnblogs.com/wish123/p/9785101.html)
 

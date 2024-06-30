@@ -4,7 +4,7 @@ date = '2024-06-30'
 author = 'aiclr'
 categories = ['tools']
 tags = ['ide','idea','shortcut']
-Summary='hello world'
+Summary='The Leading Java and Kotlin IDE'
 +++
 
 ## shortcut keys

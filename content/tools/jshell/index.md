@@ -7,6 +7,8 @@ tags = ['java','jshell']
 Summary='The Java Shell Tool'
 +++
 
+[https://dev.java/learn/jshell-tool/](https://dev.java/learn/jshell-tool/)
+
 ## jdk9 及以上版本才有此工具 可以用来测试简单的java语句
 
 - `jdk-17\bin\jshell`

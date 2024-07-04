@@ -4,7 +4,7 @@ date = '2024-07-05'
 author = 'aiclr'
 categories = ['develop']
 tags = ['jvm','java','OOM']
-Summary='hello world'
+Summary='OutOfMemory'
 +++
 
 ## java.lang.OutOfMemoryError

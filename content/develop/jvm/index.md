@@ -106,9 +106,6 @@ OpenJDK 64-Bit Server VM (build 25.372-b07, mixed mode)
     - `-XX:MaxMetaspaceSize=-1` **JDK8**及以后，设置**元空间最大可分配空间**，`-1`表示**没有限制**
 - `-XX:HandlePromotionFailure=true` *设置空间分配担保*<sub>`JDK6_24`后过时</sub>
 
-
-
-
 ## Native Method Stacks
 
 [Oracle 官方文档](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5.6) \

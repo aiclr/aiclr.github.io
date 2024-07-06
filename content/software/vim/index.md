@@ -58,6 +58,7 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 |***%***|括号匹配跳转|
 |***$***|跳转到行尾|***^***|跳转到行首|
 |***G***|跳转到末行|***gg***|跳转到首行|
+|***nG***|移到n行|
 |***H***|移动光标到当前页的第一行|***L***|移动光标到当前页的最后一行|
 |***M***|移动光标到当前页的中间行|
 |***e***|移动光标到单词末尾|***b***|移动光标到单词开头|
@@ -79,6 +80,8 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 |***:resize 30***|调整当前窗口高度|
 |***Ctrl w =***|所以窗口统一高度|
 |***Ctrl w +***|当前窗口高度+1|***Ctrl w -***|当前窗口高度-1|
+|***Ctrl f***|向前翻一页|***Ctrl b***|向后翻一页|
+|***Ctrl u***|向前翻半页|***Ctrl d***|向后翻半页|
 
 ## set
 
@@ -108,3 +111,14 @@ syntax enable
 filetype plugin indent on
 let g:rustfmt_autosave = 1
 ```
+
+## 注意
+
+vim的`~/.vimrc`配置项，屏蔽掉下面这句话：
+```shell
+set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom
+```
+再用 vim 打开`jpeg`文件，显示`ffd8 ffc0 0011 0804`和 `ffd9 0a`，显示正确\
+vim 为了支持识别和显示中文，规定了 vim 的 `fileencodings`\
+当vim打开文件时，会使用规定的编码格式对数据进行解析\
+jpeg的文件头`FFD8`、尾`FFD9` 不是任何一个中文的编码，vim找不到对应的中文字，就显示为`？？`，即：`3f3f`

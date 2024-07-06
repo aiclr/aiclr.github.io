@@ -7,7 +7,7 @@ tags = ['jvm','java','pcregister']
 Summary='The Java Virtual Machine can support many threads of execution at once (JLS §17). Each Java Virtual Machine thread has its own pc (program counter) register.'
 +++
 
-![image](img/jvm/运行时数据区jdk8.svg)
+![image](img/运行时数据区jdk8.svg)
 
 ![The pc Register](img/program_counter_register.svg)
 

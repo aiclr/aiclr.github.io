@@ -1,35 +1,25 @@
 +++
 title = 'Btrfs'
 date = '2024-07-06'
-draft = true
 author = 'aiclr'
-categories = ['']
-tags = ['']
-Summary='hello world'
+categories = ['os']
+tags = ['fs','btrfs','linux']
+Summary='Btrfs is a modern copy on write (COW) file system for Linux aimed at implementing advanced features while also focusing on fault tolerance, repair and easy administration.'
 +++
 
-
-Btrfs 文件系统特性 `Btrfs (B-tree FS,Butter FS, Better FS)`
-
-SUSE12/15 支持生产环境
-
-GPL开源文件系统
-
-Oracle 2007年开始研发
-
-`CoW(copy-on-write)` 写时复制,比就地修改的文件系统有更大的好处
-
-主要目标: 取代 ext3/ext4文件系统
-
-支持非常大的单个文件大小,实现文件检测
-
-支持快照,支持快照的快照(增量备份),可以对单个文件快照
-
-内置支持 `raid` ,支持`条带`或`mirror`等常见raid功能
-
-透明压缩
-
-热移除设备
+- [documentation](https://btrfs.readthedocs.io/en/latest/Introduction.html)
+- [archlinux wiki](https://wiki.archlinux.org/title/Btrfs)
+- Btrfs 文件系统特性 `Btrfs (B-tree FS,Butter FS, Better FS)`
+- SUSE12/15 支持生产环境
+- GPL开源文件系统
+- Oracle 2007年开始研发
+- `CoW(copy-on-write)` 写时复制,比就地修改的文件系统有更大的好处
+- 主要目标: 取代 ext3/ext4文件系统
+- 支持非常大的单个文件大小,实现文件检测
+- 支持快照,支持快照的快照(增量备份),可以对单个文件快照
+- 内置支持 `raid` ,支持`条带`或`mirror`等常见raid功能
+- 透明压缩
+- 热移除设备
 
 
 ## 格式化并创建

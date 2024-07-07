@@ -7,6 +7,9 @@ tags = ['mysql']
 Summary='MySQL is a widely spread, multi-threaded, multi-user SQL database, developed by Oracle.'
 +++
 
+## k8s
+
+[mysql.yaml](conf/mysql.yaml)
 
 ## 分页查询
 

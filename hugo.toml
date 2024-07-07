@@ -104,11 +104,3 @@ staticDir = ['conf']
     name = 'Tools'
     pageRef = '/tools'
     weight = 30
-  [[menus.main]]
-    name = 'Lotus'
-    url = '/lotus'
-    weight = 70
-  [[menus.main]]
-    name = 'AIO'
-    url = '/aio'
-    weight = 80

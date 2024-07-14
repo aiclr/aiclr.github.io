@@ -54,7 +54,8 @@ git config user.email xxx@xx.com
 git config --local user.email xxx@xx.com
 ```
 
-crlf & lf ***跨平台脚本之灾*** \
+### crlf & lf ***跨平台脚本之灾***
+
 [GitHub reference](https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings) \
 [git reference](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration)
 - `core.autocrlf false` If you’re a Windows programmer doing a Windows-only project, then you can turn off this functionality, recording the carriage returns in the repository by setting the config value to false
@@ -67,7 +68,7 @@ crlf & lf ***跨平台脚本之灾*** \
 
 ***当添加配置文件或使用参数配置后，并不会生效。配置文件方式重新clone代码即可生效，`git config` 删掉除 `.git` 的全部文件,手动下载仓库代码，然后解压把代码放进去即可***
 
-windows 安装时默认会设置为 `true`
+windows 安装时默认会设置为 `true` \
 ![crlf_lf.gif](img/crlf_lf.gif)
 ```sh
 # 配置 core.autocrlf
@@ -136,7 +137,20 @@ git config --local core.autocrlf true
 *.jpeg binary
 ```
 
-刷新以应用新的配置文件
+### 启用较长路径名称 
+
+[microsoft learn](https://learn.microsoft.com/en-us/contribute/content/get-started-setup-local#clone-the-repository)
+
+基于 **Windows** 的 Git：启用较长的路径名称。\
+默认情况下，Git for Windows **禁用**对较长文件路径的支持，这会阻止克隆目标路径长度超过 ***255*** 个字符的任何文件。\
+通过以**管理员**身份运行下列命令来启用较长的文件路径，从而避免此问题：
+```sh
+git config --global core.longpaths true
+```
+
+
+### 刷新以应用新的配置文件
+
 ```shell
 git rm --cached -r
 git reset --hard

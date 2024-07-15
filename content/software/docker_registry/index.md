@@ -4,7 +4,7 @@ date = '2024-07-07'
 author = 'aiclr'
 categories = ['software']
 tags = ['docker','k8s']
-Summary=''
+Summary='docker 私有仓库'
 +++
 
 ## registry server

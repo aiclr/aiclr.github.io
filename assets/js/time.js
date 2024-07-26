@@ -1,7 +1,12 @@
-let startTime = new Date('2021/12/18 20:53:00');
+let meetTime = new Date('2021/12/18 20:53:00');
+let birthTime = new Date('2024/06/25 13:15:00');
 
 function time() {
-    const ms = Math.floor((new Date() - startTime));
+    const now = new Date();
+    let ms = Math.floor((now - meetTime));
+    if (now.getSeconds() < 30) {
+        ms = Math.floor((now - birthTime));
+    }
     const d = Math.floor(ms / 86400000);
     const h = Math.floor((ms - d * 86400000) / 3600000);
     const m = Math.floor((ms - d * 86400000 - h * 3600000) / 60000);
@@ -26,4 +31,4 @@ function time() {
     document.getElementById("aiclr").innerHTML = daysText + hoursText + minutesText + secondsText + ' seconds have passed';
 }
 
-setInterval(time, 1000);
+setInterval(time, 500);

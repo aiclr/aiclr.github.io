@@ -12,7 +12,7 @@ Summary='Emacs is an extensible, customizable, self-documenting real-time displa
 |`C-<chr>`|hold the `CONTROL` key while typing the character `<chr>`|
 |`M-<chr>`|hold the `META` or `ALT` key down while typing `<chr>`.If there is no `META` or `ALT` key, instead press and release the `ESC` key and then type `<chr>`.  We write `<ESC>` for the `ESC` key.|
 |`<DEL>`|This is the key on the keyboard usually labeled "Backspace"--the same one you normally use, outside Emacs, to delete the last character typed.|
-|`<Delete`|There is usually another key on your keyboard labeled `<Delete>`, but that's not the one we refer to as `<DEL>` in Emacs.|
+|`<Delete>`|There is usually another key on your keyboard labeled `<Delete>`, but that's not the one we refer to as `<DEL>` in Emacs.|
 |`<SPC>`|the Space bar|
 |`<Return>`|this is the key on the keyboard which is sometimes labeled "Enter"|
 | ***IF EMACS STOPS RESPONDING*** |
@@ -23,7 +23,7 @@ Summary='Emacs is an extensible, customizable, self-documenting real-time displa
 |C-x u|undo command|
 | ***del、cut、copy、yank、paste***|
 | |Some other editors call killing and yanking "cutting" and "pasting"|
-|`<DEL`|Delete the character just before the cursor|
+|`<DEL>`|Delete the character just before the cursor|
 |`M-<DEL>`|Kill<sub>cut</sub> the word immediately before the cursor|
 |C-d|Delete the next character after the cursor|
 |M-d|Kill<sub>cut</sub> the next word after the cursor|

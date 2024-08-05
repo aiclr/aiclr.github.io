@@ -9,7 +9,7 @@ Summary='Gradle Build Tool is a fast, dependable, and adaptable open-source buil
 
 [官方文档](https://docs.gradle.org/current/userguide/userguide.html) \
 [支持java版本对照](https://docs.gradle.org/current/userguide/compatibility.html) \
-[使用指引](https://docs.gradle.org/current/userguide/getting_started.html) \
+[使用指引](https://docs.gradle.org/current/userguide/getting_started_eng.html) \
 [例子](https://docs.gradle.org/current/samples/index.html) \
 [故障](https://docs.gradle.org/current/userguide/troubleshooting.html) \
 [多项目 includeBuild](https://docs.gradle.org/current/userguide/composite_builds.html#command_line_composite) \

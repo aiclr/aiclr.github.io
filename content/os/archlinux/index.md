@@ -1,7 +1,6 @@
 +++
 title = 'Archlinux'
 date = '2024-07-07'
-draft = true
 author = 'aiclr'
 categories = ['os']
 tags = ['linux','archlinux']

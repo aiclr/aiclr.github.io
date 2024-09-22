@@ -1,5 +1,7 @@
 # my blog
 
+init `git submodule update --init`
+
 update themes `git submodule foreach git pull`
 
 local run `hugo server --gc --minify`

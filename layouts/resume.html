@@ -155,12 +155,12 @@
             <div class="skill">
                 <h2>技术栈</h2>
                 <ul>
-                    <li>JAVA、Groovy</li>
-                    <li>JVM</li>
-                    <li>Arthas、VisualVM</li>
+                    <li>JVM、JAVA、Groovy</li>
+                    <li>React</li>
+                    <li>DevOps、DDD、TDD</li>
                     <li>Gradle、Maven</li>
-                    <li>Spring、Spring&nbsp;Boot</li>
-                    <li>MyBatis、Spring&nbsp;Data&nbsp;JPA</li>
+                    <li>Spring、Spring&nbsp;Boot、Vert.x</li>
+                    <li>MyBatis、JPA</li>
                     <li>Spring&nbsp;Security</li>
                     <li>Spring&nbsp;Web&nbsp;Services</li>
                     <li>Spring&nbsp;Cloud</li>
@@ -170,12 +170,12 @@
                     <li>RabbitMQ</li>
                     <li>prometheus、pushgateway</li>
                     <li>Git、GitFlow</li>
+                    <li>Arthas、VisualVM</li>
                     <li>VirtualBox</li>
                     <li>Arch&nbsp;Linux、OpenSUSE</li>
                     <li>Docker、Podman</li>
                     <li>Kubernetes</li>
                     <li>IntelliJ&nbsp;IDEA、VS&nbsp;Code、Vim</li>
-                    <li>React</li>
                 </ul>
 
             </div>
@@ -187,26 +187,17 @@
                 <i>深圳市法本信息技术股份有限公司广州分公司外包</i><br />
                 工作内容：
                 <ul>
-                    <li>根据客户业务功能需求升级<b>车道<sub><i>停车缴费系统终端</i></sub></b>服务、云岗亭服务、数据收集服务</li>
-                    <li>根据客户采购硬件设备类型，车道服务集成对于设备。包括车牌识别相机、LED显示屏、语音控制卡、道闸、地磁、ETC天线等硬件</li>
-                    <li>降低车道服务停机时间与频次；提高运维工程师、实施工程师工作效率。将车道定时任务改造为热切换模式。</li>
-                    <li>基于车道服务，为公司<b>云座席</b>技术提供完整技术实现方案</li>
-                    <li>保护公司知识产权将车道服务加密</li>
-                    <li>为增加客户路侧停车场收费效率，集成高位视频、低位视频桩、地磁和诱导屏。</li>
-                    <li>为发展云车道、云座席。集成苏州云客服平台</li>
+                    <li>根据产品经理收集的需求、运营反馈的生产bug。快速迭代基于groovy、java的省级Spring MVC项目</li>
+                    <li>基于省级Spring MVC项目，实现厅局版Spring Cloud项目。扩展省级项目</li>
+                    <li>遵循DDD方法论，基于厅局版Spring Cloud项目，实现地市版项目</li>
+                    <li>完成应用中台用户中心国密改造</li>
                 </ul>
                 技术积累：
                 <ul>
-                    <li>参考spring源码实现不停机增删改查springboot定时任务，并实现为springboot starter<sub>ScheduledTaskRegistrar</sub>。</li>
-                    <li>根据springboot layering docker images文档、docker multi-stage
-                        builds文档，将springboot服务docker镜像分层打包，提高发布效率。</li>
-                    <li>springboot jar包加密技术。根据曾自学《深入理解Java虚拟机》关于classloader
-                        system部分的经验、spring、springboot源码、自学《Groovy程序设计》时积累的groovy经验和gradle官网插件开发指导文档，实现非侵入式加密车道服务jar包。不影响IDE开发、不影响Jenkins部署、不影响前端开发、加密算法支持扩展、绑定MAC、有效期校验。由本人经过10个工作日独自研发实现。
-                    </li>
-                    <li>为公司监控系统引入prometheus、pushgateway，根据襄州监控平台为公司自主研发jvm监控系统。</li>
-                    <li>参考spring
-                        guides以及曾自学的React框架，将车道前后端交互由http改造为websocket。主要使用STOMP，前端react使用stompjs、sockjs-client库。由于公司系统复杂，仅改造部分业务。
-                    </li>
+                    <li>积累groovy、java、数据库存储过程混合开发项目经验，优化配置文件，并形成文档，解决省级项目本地开发环境无法正常启动问题。</li>
+                    <li>厅局版项目使用DevOps工具链，结合TDD方法论，实现快速迭代。积累架构设计经验。厅局版项目基于省级业务进行拆分，且高度耦合应用中台api。在无准确原型、无完整业务需求的情况下，由三个后端两个前端在三个月内参考省级项目业务代码完成开发，上线后快速迭代查漏补缺。</li>
+                    <li>地市版项目，遵循DDD方法论，将厅局版各个微服务模块改造成领域组件。积累DDD经验。本人在两周内独自完成组件化改造，并交付地市服务部。由地市服务部对接地市定制化需求，并为地市服务部团队持续提供技术支持。</li>
+                    <li>本人在职期间承担生产环境厅局版、应用中台的运维工作。期间通过 <b>Arthas</b>、<b>VisualVM</b>诊断出中台文件中心<b><i>java.io.ByteArrayOutputStream</i></b>和<b><i>java.io.ByteArrayInputStream</i></b> 内部的byte数组占用内存过大，导致上传文件较大时服务OOM。由于生产服务器资源有限，建议使用<b><i>java.io.BufferedOutputStream</i></b>和<b><i>java.io.BufferedInputStream优化</i></b>。积累JVM调优经验。</li>
                 </ul>
             </div>
         </div>

@@ -54,6 +54,13 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 |vjjd|v切换到visual model，jj选择从光标所在行开始的往下两行，d剪切|
 |vjjy|v切换到visual model，jj选择从光标所在行开始的往下两行，y复制|
 |-|
+|visual block mode|
+|`Ctrl v`|切换到visual block model|
+|y|block yink|将选择的块，复制到粘贴板|
+|p|block paste|粘贴粘贴板中的内容|
+|x|block delete|删除选择的块|
+|c|block insert|输入后 使用`ESC`完成insert|
+|-|
 |jump|
 |***%***|括号匹配跳转|
 |***$***|跳转到行尾|***^***|跳转到行首|
@@ -95,6 +102,8 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 
 ## .vimrc
 
+### ~/.vimrc
+
 ```vimrc
 set nu
 set nocompatible
@@ -111,6 +120,61 @@ syntax enable
 filetype plugin indent on
 let g:rustfmt_autosave = 1
 ```
+
+### ~/_vimrc
+
+```vimrc
+" 将当前行向上移动一行
+inoremap <M-k> <Esc>kddpk
+nnoremap <M-k> kddpk
+" 将当前行向下移动一行
+inoremap <M-j> <Esc>ddp
+nnoremap <M-j> ddp
+
+set ff=unix
+" 去掉有关vi一致性模式，避免以前版本的bug和局限
+set nocompatible
+" indent :set indent :set ai等自动缩进，想使用backspace将字段缩进的删除，必须设置这个选项。否则不响应
+" eol 如果 insert 模式再行开头想使用backspace合并两行，需要设置eol
+" start 想要删除此次插入前的输入，需要设置start
+set backspace=indent,eol,start
+set nu
+set guifont=JetBrains_Mono_SemiBold:h12
+set laststatus=2  "显示状态栏
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
+"上面的状态栏展示信息比较多，，可以如上所示进行集合性配置，如果懒得一一理解，可直接复制进配置文件，因为所有配置对于提升你编程效率都有帮助。当然如果你不嫌麻烦，也可以以下面所示形式单独配置（注意去掉前面”号）
+"set statusline+=%{&ff}  "显示文件格式类型
+"set statusline+=%h  "帮助文件标识
+"set statusline+=%m  "可编辑文件标识
+"set statusline+=%r  "只读文件标识
+"set statusline+=%y  "文件类型
+"set statusline+=%c  "光标所在列数
+"set statusline+=%l/%L  "光标所在行数/总行数
+"set statusline+=\ %P  "光标所在位置占总文件百分比
+
+" Show a few lines of context around the cursor. Note that this makes the text
+" scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+set linespace=3
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" rust.vim start "
+syntax enable
+filetype plugin indent on
+" let current_compiler = 'rustc'
+let g:rustfmt_autosave = 1
+let g:rustfmt_fail_silently = 0
+" let g:syntastic_rust_checkers = ['cargo']
+" rust.vim end"
+```
+
+## plugin
+
+### rust.vim
+
+- [https://github.com/rust-lang/rust.vim](https://github.com/rust-lang/rust.vim)
+- 插件位置：***~\.vim\pack\plugins\start***
 
 ## 注意
 

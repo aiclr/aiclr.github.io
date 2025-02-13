@@ -4,16 +4,23 @@ date = '2025-02-07'
 author = 'aiclr'
 categories = ['vim']
 tags = ['vim','help','user manual','getting started']
-Summary='This chapter introduces the manuals available with Vim. Read this to know the conditions under which the commands are explained.'
+Summary=':help usr_01 This chapter introduces the manuals available with Vim. Read this to know the conditions under which the commands are explained.'
 +++
-
-Next chapter: [usr_02](../usr_02) The first steps in Vim
-
-##
 
 This chapter introduces the manials available with Vim. Read this to know the conditions under which the commands are explained.
 
-## Two manuals
+- [01.1    Two manuals](#011-two-manuals)
+- [01.2    Vim installed](#012-vim-installed)
+- [01.3    Using the Vim tutor](#013-using-the-vim-tutor)
+- [01.4    Copyright](#014-copyright)
+
+Next chapter: [usr_02](../usr_02) The first steps in Vim<br/>
+Table of contents: [usr_toc](../../usr_toc)
+
+___
+___
+
+## 01.1 Two manuals
 
 The Vim docymentation consists of two parts:
 
@@ -35,24 +42,46 @@ Many links are in vertical bars,like this: bars. The bar themselves may be hidde
 Other subjects can be found with the `:help` command; see [help.txt](.)
 
 The bars and stars are usually hidden with the conceal feature. They also use hl-Ignore, using the same color for the text as the background. You can make them visible with:
-- `:set conceallevel=0`
-- `:hi link HelpBar Normal`
-- `:hi link HelpStar Normal`
+```text
+:set conceallevel=0
+:hi link HelpBar Normal
+:hi link HelpStar Normal
+```
 
-## Vim installed
+___
+___
+
+## 01.2 Vim installed
 
 Most of the manuals assume that Vim has bean properly installed. If you didn't do that yet, or if Vim doesn't run properly (e.g., files can't be found or in the GUI the menus do not show up) first read the chapter on installation: [usr_90.txt](../../making_vim_run/usr_90)
 
 ### not-compatible
 
 The manuals often assume you are using Vim with Vi-compatibility switched off. For most commands this doesn't matter, but sometimes it is important, e.g., for multi-level undo. An easy way to make sure you are using a nice setup is to copy the example vimrc file. By doing this inside Vim you don't have to check out where it is located. How to do this depends on the system you are using:
-- Unix: `:!cp -i $VIMRUNTIME/vimrc_example.vim ~/.vimrc`
-- MS-Windows: `:!copy $VIMRUNTIME/vimrc_example.vim $VIM/_vimrc`
-- Amiga: `:!copy $VIMRUNTIME/vimrc_example.vim $VIM/.vimrc`
 
+Unix:
+```text
+:!cp -i $VIMRUNTIME/vimrc_example.vim ~/.vimrc
+```
+MS-Windows:
+```text
+:!copy $VIMRUNTIME/vimrc_example.vim $VIM/_vimrc
+```
+Amiga:
+```text
+:!copy $VIMRUNTIME/vimrc_example.vim $VIM/.vimrc
+```
 If the file already exists you probably want to keep it.
 
-If you start Vim now, The `compatible` option should be off. You can check it with this command: `:set compatible?`. If it responds with "nocompatible" you are doing well. If the response is "compatible" you are in trouble. You will have to find out why the option is still set. Perhaps the file you wrote above is not found. Use this command to find out: `:scriptnames`. If your file is not in the list, check its location and name. If it is in the list, there must be some other place where the 'compatible' option is switched back on.
+If you start Vim now, The `compatible` option should be off. You can check it with this command:
+```text
+:set compatible?
+```
+If it responds with "nocompatible" you are doing well. If the response is "compatible" you are in trouble. You will have to find out why the option is still set. Perhaps the file you wrote above is not found. Use this command to find out:
+```text
+:scriptnames
+```
+If your file is not in the list, check its location and name. If it is in the list, there must be some other place where the 'compatible' option is switched back on.
 
 For more info see [vimrc](.) and [compatible-default](.).
 
@@ -60,31 +89,46 @@ For more info see [vimrc](.) and [compatible-default](.).
 
 This manual is about using Vim in the normal way. There is an alternaive called "evim" (easy Vim). This is still Vim, but used in a way that resembles a click-and-type editor like Notepad. It always stays in Insert mode, thus it feels very different. It is not explained in the user manual, since it should be mostly self-explanatory. See [evim-keys](.) for details.
 
-## Using the Vim tutor
+___
+___
+
+## 01.3 Using the Vim tutor
 
 ### tutor vimtutor
 
 Instead of reading the text (boring!) you can use the vimtutor to learn your first Vim commands. This is a 30-minute tytorial that teaches the most basic Vim functionality hands-on.
 
-- On Unix, if Vim has bean properly installed, you can start it from the shell: `vimtutor`.
-- On MS-Windows you can find it in the Program/Vim menu. Or execute ***vimtutor.bat*** in the **$VIMRUNTIME** directory.
+On Unix, if Vim has bean properly installed, you can start it from the shell:
+```text
+vimtutor
+```
+On MS-Windows you can find it in the Program/Vim menu. Or execute ***vimtutor.bat*** in the **$VIMRUNTIME** directory.
 
 This will make a copyof the tutor file, so that you can edit it without the risk of damaging the original.
 
-There are a few translated versions of the tutor. To find out if yours is avaiable, use the two-letter language code. For French: `vimtutor fr`.
+There are a few translated versions of the tutor. To find out if yours is avaiable, use the two-letter language code. For French:
+```text
+vimtutor fr
+```
+On Unix, if you prefer using the GUI version of Vim, use `gvimtutor` or `vimtutor -g` instead of `vimtutor`.
 
-- On Unix, if you prefer using the GUI version of Vim, use `gvimtutor` or `vimtutor -g` instead of `vimtutor`.
+For OpenVMS, if Vim has bean properly installed, you can start vimtutor from a VMS prompt with:
+```text
+@VIM:vimtutor
+```
+Optionally add the two-letter language code as above.
 
-- For OpenVMS, if Vim has bean properly installed, you can start vimtutor from a VMS prompt with: `@VIM:vimtutor`. Optionally add the two-letter language code as above.
+On other systems, you have to do a little work:
+- Copy the tutor file. You can do this with Vim (it knows where to find it):
+    - `vim --clean -c 'e $VIMRUNTIME/tutor/tutor' -c 'w! TUTORCOPY' -c 'q'`. This will write the file ***TUTORCOPY*** in the current directory.
+    - For French: `vim --clean -c 'e $VIMRUNTIME/tutor/tutor.fr' -c 'w! TUTORCOPY' -c 'q'`. To use a translated version of the tutor, append the two-letter language code to the filename.
+- Edit the copied file with Vim: `vim --clean TUTORCOPY`. The ***--clean*** argument makes sure Vim is started with noce defaults.
+- Delete the copied file when you are finished with it: `del TUTORCOPY`.
 
-- On other systems, you have to do a little work:
-    - Copy the tutor file. You can do this with Vim (it knows where to find it):
-        - `vim --clean -c 'e $VIMRUNTIME/tutor/tutor' -c 'w! TUTORCOPY' -c 'q'`. This will write the file ***TUTORCOPY*** in the current directory.
-        - For French: `vim --clean -c 'e $VIMRUNTIME/tutor/tutor.fr' -c 'w! TUTORCOPY' -c 'q'`. To use a translated version of the tutor, append the two-letter language code to the filename.
-    - Edit the copied file with Vim: `vim --clean TUTORCOPY`. The ***--clean*** argument makes sure Vim is started with noce defaults.
-    - Delete the copied file when you are finished with it: `del TUTORCOPY`.
+___
+___
 
-## Copyright
+## 01.4 Copyright
 
 ### manual-copyright
 
@@ -100,6 +144,7 @@ Many thanks to Steve Oualline and New Riders for creating this book and publishi
 
 If you make money through selling the manuals, you are strongly encouraged to donate part of the profit to help AIDS victims in Uganda.  See [iccf](.).
 
-##
+___
+___
 
 Next chapter: [usr_02](../usr_02) The first steps in Vim

@@ -5,5 +5,5 @@ draft = true
 author = 'aiclr'
 categories = ['vim']
 tags = ['vim','help','user manual','getting started']
-Summary='Using syntax highlighting'
+Summary=':help usr_06 Using syntax highlighting'
 +++

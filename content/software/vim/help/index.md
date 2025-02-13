@@ -4,7 +4,7 @@ date = '2025-02-07'
 author = 'aiclr'
 categories = ['vim']
 tags = ['vim','help']
-Summary = 'Vim help docs'
+Summary = ':help Vim help docs'
 +++
 
 |help|`:help`|帮助|

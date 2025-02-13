@@ -5,5 +5,5 @@ draft = true
 author = 'aiclr'
 categories = ['vim']
 tags = ['vim','help','user manual','getting started']
-Summary='Moving around'
+Summary=':help usr_03 Moving around'
 +++

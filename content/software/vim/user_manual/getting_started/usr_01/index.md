@@ -4,7 +4,7 @@ date = '2025-02-07'
 author = 'aiclr'
 categories = ['vim']
 tags = ['vim','help','user manual','getting started']
-Summary=':help usr_01 This chapter introduces the manuals available with Vim. Read this to know the conditions under which the commands are explained.'
+Summary=':help usr_01'
 +++
 
 This chapter introduces the manials available with Vim. Read this to know the conditions under which the commands are explained.

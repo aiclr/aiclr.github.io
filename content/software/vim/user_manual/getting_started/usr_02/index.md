@@ -4,7 +4,7 @@ date = '2025-02-07'
 author = 'aiclr'
 categories = ['vim']
 tags = ['vim','help','user manual','getting started']
-Summary=':helo usr_02 This chapter provides just enough information to edit a file with Vim. Notwell or fast, but you can edit. Take some time to practice with these commands, they form the base for what follows.'
+Summary=':helo usr_02'
 +++
 
 This chapter provides just enough information to edit a file with Vim.  Not well or fast, but you can edit.  Take some time to practice with these commands, they form the base for what follows.

@@ -7,11 +7,43 @@ tags = ['vim']
 Summary = 'Vim is a terminal text editor. It is an extended version of vi with additional features, including syntax highlighting, a comprehensive help system, native scripting (Vim script), a visual mode for text selection, comparison of files (vimdiff(1)), and tools with restricted capabilities such as rview(1) and rvim(1).'
 +++
 
+- [help](../user_manual/getting_started/usr_02#028-finding-help)
+
+## MODE
+
+```text
+:set showmode
+```
+
+- normal mode
+- insert mode
+- visual mode
+
+**normal mode** `i` -> **insert mode** `<Esc>` -> **normal mode**
+**normal mode** `v` -> **visual mode** `<Esc>` -> **normal mode**
+
+|vim||||
+|---|---|---|---|
+|editing commands||||
+|a|append 拼接到光标位置|i|insert 插入到光标位置|
+|A|光标行尾拼接|I|光标行首插入|
+|o|光标下方新增一行|O|光标上方新增一行|
+|s|删除光标所在字符|S|删除光标所在行|
+
+## Getting out
+
+- `ZZ` command writes the file and exits
+- `:wq` write and quit
+- `:w` write
+- `:q` quit
+- `:q!` fource quit without write
+
+
 |vim||||
 |:---|:---|:---|:---|
-|insert model||||
-|a|光标后|i|光标前|
-|A|光标行尾|I|光标行首|
+|editing commands||||
+|a|append 拼接到光标位置|i|insert 插入到光标位置|
+|A|光标行尾拼接|I|光标行首插入|
 |o|光标下方新增一行|O|光标上方新增一行|
 |s|删除光标所在字符|S|删除光标所在行|
 |-|
@@ -74,6 +106,7 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 |-|
 |split|
 |***:sp***|水平分割窗口|***:vsp***|垂直分割窗口|
+|***Ctrl+w+s***|水平分割窗口|***Ctrl+w+v***|垂直分割窗口|
 |***:sp xxx.txt***|水平分割窗口并在新窗口打开xxx.txt|***:vsp xxx.txt***|垂直分割窗口并在新窗口打开xxx.txt|
 |-|
 |***vim -On***|***-O***垂直分割、***-n***分割窗口数|***vim -on***|***-o***水平分割、***-n***分割窗口数|
@@ -86,7 +119,7 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 |***Ctrl w r***|互换窗口|
 |***:resize 30***|调整当前窗口高度|
 |***Ctrl w =***|所以窗口统一高度|
-|***Ctrl w +***|当前窗口高度+1|***Ctrl w -***|当前窗口高度-1|
+|***Ctrl w 1+***|当前窗口高度+1|***Ctrl w -***|当前窗口高度-1|
 |***Ctrl f***|向前翻一页|***Ctrl b***|向后翻一页|
 |***Ctrl u***|向前翻半页|***Ctrl d***|向后翻半页|
 

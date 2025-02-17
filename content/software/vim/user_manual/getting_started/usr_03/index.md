@@ -35,7 +35,7 @@ To move the cursor forward one word, use the ***w*** command. Like most Vim comm
 ```text
         This is a line with example text
           x-->-->->----------------->
-           w  w  w    3w
+             w  w w    3w
 ```
 Notice that ***w*** woves to the start of the next word if it already is at the start of a word.<br/>
 The ***b*** command moves backword to the start of the previous word:
@@ -117,4 +117,108 @@ The `tx` command works like the `fx` command, except it stops one character befo
                    <------------  ------------->
                         Th              tn
 ```
-These four
+These four commands can be repeated with `;`. `,` repeats in the other direction. The cursor is never moved to another line. Not even when the sentence continues.
+
+Sometimes you will start a search, only to realize that you have typed the wrong command. You type `f` to search backward, for example, only to realize that you really meant `F`. To about a search, press `<Esc>`. So `f<Esc>` is an aborted forward search and doesn't do anything. Note: `<Esc>` cancels most operations, not just searches.
+
+___
+___
+
+## 03.4 Matching a parenthesis
+
+When writing a program you often end up with nested () constructs. Then the `%` command is very handy: It moves to the matching paren. If the cursor is on a ***(*** it will move to the matching ***)***. If it's on a ***)*** it will move to the matching ***(***.
+```text
+                            %
+                         <----->
+                if (a == (b * c) / d)
+                   <---------------->
+                            %
+```
+This also works for ***[]*** and ***{}*** pairs. (This can be defined with the `matchpairs` option.)
+
+When the cursor is not on a useful character, `%` will search forward to find one. Thus if the cursor is at the start of the line of the previous example, `%` will search forward and find the first `(`. Then it moves to its match:
+```text
+                if (a == (b * c) / d)
+                ---+---------------->
+                           %
+```
+
+___
+___
+
+## 03.5 Moving to a specific line
+
+If you are a C or C++ programmer, you are familiar with error messages such as the following:
+```text
+        prog.c:33: j   undeclared (first use in this function)
+```
+This tells you that you might want to fix something on line 33. So how do you find line 33? One way is to do `9999k` to go to the top of the file and `32j` to go down thirty-two lines. It is not a good way, but it works, A much better way of doing things is to use the `G` command. With a count, this command positions you at the given line number. For example, `33G` puts you on line 33. (For a better way of going through a compiler's error list, see [usr_30.txt](../../editing_effectively/usr_30), for information on the `:make` command.)<br/>
+With no argument, `G` positions you at the end of the file. A quick way to go to the start of a file use `gg`. `1G` will do the same, but is a tiny bit more typing.
+```text
+            |   first line of a file   ^
+            |   text text text text    |
+            |   text text text text    |  gg
+        7G  |   text text text text    |
+            |   text text text text
+            |   text text text text
+            V   text text text text    |
+                text text text text    |  G
+                text text text text    |
+                last line of a file    V
+```
+Another way to move to a line is using the  `%` command with a count. For example `50%` moves you to halfway the file. `90%` goes to near the end.
+
+The previous assumes that you want to move to a line in the file, no matter if it's currently visible or not. What if you want to move to one of the lines you can see? This figure shows the three commands you can use:
+```text
+                        +---------------------------+
+                H -->   | text sample text          |
+                        | sample text               |
+                        | text sample text          |
+                        | sample text               |
+                M -->   | text sample text          |
+                        | sample text               |
+                        | text sample text          |
+                        | sample text               |
+                L -->   | text sample text          |
+                        +---------------------------+
+```
+HintsL `H` stands for Home, `M` for Middle and `L` for Last. Alternatively, `H` for high, `M` for Middle and `L` for low.
+
+___
+___
+
+## 03.6 Telling where you are
+
+To see where you are in a file, there are three ways:
+
+1. Use the `CTRL-G` command. You get a message like this (assuming the `ruler` option is off):
+```text
+       "usr_03.txt" line 233 of 650 --35%-- col 45-52
+```
+This shows the same of the file you are editing, the line number where the cursor is, the total number of lines, the percentage of the way through the file and the column of the cursor.<br>
+Sometimes you will see a split column number. For example, ***col 2-9***. This indicates that the cursor is positioned on the second character, but because character one is a tab, occupying eight spaces worth of columns, the screen column is ***9***.
+
+2. Set the `number` option. This will display a line number in front of every line:
+```text
+        :set number
+        :set nu
+```
+To switch this off again:
+```text
+        :set nonumber
+        :set nonu
+```
+Since `number` is a boolean option, prepending `no` to its names has the effect of switching it off. A boolean option has only these two values, it is either on or off.<br>
+Vim has many options. Besides the boolean ones there are options with a numerical value and string options. You will see examples of this where they are used.
+
+3. Set the `ruler` option. This will display the cursor position in the lower right corner of the Vim window:
+```text
+        :set ruler
+```
+Using the `ruler` option has the advantage that it doesn't take much room, thus there is more space for your text.
+
+___
+___
+
+## 03.7 Scrolling around
+

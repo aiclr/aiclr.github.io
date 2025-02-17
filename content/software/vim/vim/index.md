@@ -22,9 +22,8 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 **normal mode** `i` -> **insert mode** `<Esc>` -> **normal mode**
 **normal mode** `v` -> **visual mode** `<Esc>` -> **normal mode**
 
-|vim||||
-|---|---|---|---|
 |editing commands||||
+|---|---|---|---|
 |a|append 拼接到光标位置|i|insert 插入到光标位置|
 |A|光标行尾拼接|I|光标行首插入|
 |o|光标下方新增一行|O|光标上方新增一行|
@@ -38,15 +37,93 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 - `:q` quit
 - `:q!` fource quit without write
 
+## Moving around
+
+|moving||||
+|:---|:---|:---|:---|
+|`w`|to move the cursor forward to the start of the next word|`b`|to move the cursor backward to the start of the previous word|
+|`e`|to move the cursor forward to the end of the next word|`ge`|to move the cursor backward to the end of the previous word|
+|`0`|to move the cursor to the very first character of the line|`$`|to move the cursor to the end of a line|
+|`^`|to move the cursor to the first non-blank character of the line|
+||one of the most useful movement commands||single-character search command|
+|`fx`|searches forward in the line for the single character x|`Fx`|the backward version of `fx` command|
+|`tx`|works like the `fx` command, except it stops one character before the searched character.|`Tx`| the backward version of `tx` command|
+|`%`|括号匹配跳转|
+|***G***|跳转到末行|***nG***|跳转到n行|
+|***gg***|跳转到首行|
+|***H***|移动光标到当前页的第一行|
+|***M***|移动光标到当前页的中间行|
+|***L***|移动光标到当前页的最后一行|
+| * |移动光标到上一个insert位置|
+
+```text
+        This is a line with example text
+          x-->-->->----------------->
+             w  w w    3w
+
+        This is a line with example text
+        <----<--<-<---------<--x
+           b   b b    2b      b
+
+        This is a line with example text
+           <----<----x---->------------>
+           2ge   ge     e       2e
+
+                  ^
+             <-----------x
+        .....This is a line with example text
+        <----------------x   x-------------->
+                0                  $
+
+        To err is human.  To really foul up you need a computer.
+        ---------->--------------->
+            fh           fy
+
+        To err is human.  To really foul up you need a computer.
+                  --------------------->
+                           3fl
+
+        To err is human.  To really foul up you need a computer.
+                  <---------------------
+                            Fh
+
+        To err is human.  To really foul up you need a computer.
+                   <------------  ------------->
+                        Th              tn
+
+                            %
+                         <----->
+                if (a == (b * c) / d)
+                   <---------------->
+                            %
+
+            |   first line of a file   ^
+            |   text text text text    |
+            |   text text text text    |  gg
+        7G  |   text text text text    |
+            |   text text text text
+            |   text text text text
+            V   text text text text    |
+                text text text text    |  G
+                text text text text    |
+                last line of a file    V
+
+                        +---------------------------+
+                H -->   | text sample text          |
+                        | sample text               |
+                        | text sample text          |
+                        | sample text               |
+                M -->   | text sample text          |
+                        | sample text               |
+                        | text sample text          |
+                        | sample text               |
+                L -->   | text sample text          |
+                        +---------------------------+
+```
+
 
 |vim||||
 |:---|:---|:---|:---|
-|editing commands||||
-|a|append 拼接到光标位置|i|insert 插入到光标位置|
-|A|光标行尾拼接|I|光标行首插入|
-|o|光标下方新增一行|O|光标上方新增一行|
-|s|删除光标所在字符|S|删除光标所在行|
-|-|
 |按边界*操作|
 |yi*|复制边界内内容|yi"|复制双引号内的内容|
 |ya*|复制边界以及内容|ya{|复制双引号及其内的内容|
@@ -92,17 +169,6 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 |p|block paste|粘贴粘贴板中的内容|
 |x|block delete|删除选择的块|
 |c|block insert|输入后 使用`ESC`完成insert|
-|-|
-|jump|
-|***%***|括号匹配跳转|
-|***$***|跳转到行尾|***^***|跳转到行首|
-|***G***|跳转到末行|***gg***|跳转到首行|
-|***nG***|移到n行|
-|***H***|移动光标到当前页的第一行|***L***|移动光标到当前页的最后一行|
-|***M***|移动光标到当前页的中间行|
-|***e***|移动光标到单词末尾|***b***|移动光标到单词开头|
-|***w***|移动光标到下一个单词开头|
-| * |移动光标到上一个insert位置|
 |-|
 |split|
 |***:sp***|水平分割窗口|***:vsp***|垂直分割窗口|

@@ -91,4 +91,30 @@ ___
 
 ## 03.3 Moving to a character
 
-One of the most useful movement commands is 
+One of the most useful movement commands is the single-character search command. The command `fx` searches forward in the line for the single character **x**. Hint: `f` stands for ***Find***.<br/>
+For example, you are at the beginning of the following line. Suppose you want to go to the ***h*** of human. Just execute the command `fh` and the cursor will be positioned over the ***h***:
+```text
+        To err is human.  To really foul up you need a computer.
+        ---------->--------------->
+            fh           fy
+```
+This also shows that the command `fy` moves to the end of the word really.<br/>
+You can specify a count; therefore, you can go to the ***l*** of ***foul*** with `3fl`:
+```text
+        To err is human.  To really foul up you need a computer.
+                  --------------------->
+                           3fl
+```
+The `F` command searches to the left:
+```text
+        To err is human.  To really foul up you need a computer.
+                  <---------------------
+                            Fh
+```
+The `tx` command works like the `fx` command, except it stops one character before the searched character. Hint: `t` stands for ***To***. The backward version of this command is `Tx`.
+```text
+        To err is human.  To really foul up you need a computer.
+                   <------------  ------------->
+                        Th              tn
+```
+These four

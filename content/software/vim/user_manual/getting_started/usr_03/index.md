@@ -428,12 +428,12 @@ The `.` (dot) character matches any existing character. For example, the pattern
 ### MATCHING SPECIAL CHARACTERS
 
 If you really want to match a dot, you must avoid its special meaning by putting a backslash before it.<br>
-If you search for `the.`, you will find these matches:
+If you search for `ter.`, you will find these matches:
 ```text
         We use a computer that became the cummin winter.
                       xxxx                          xxxx
 ```
-Searching for `the\.` only finds the second match.
+Searching for `ter\.` only finds the second match.
 
 ___
 ___
@@ -479,7 +479,7 @@ To go to a mark, use the command ***&#96;{mark}***, where `{mark}` is the mark l
 ```text
         `a
 ```
-The command ***&#96;mark*** (single quotation mark, or apostrophe) moves you to the begining of the line containing the mark. This differs from the ***&#96;mark*** command, which also moves you to the marked column.
+The command ***'mark*** (single quotation mark, or apostrophe) moves you to the begining of the line containing the mark. This differs from the ***&#96;mark*** command, which also moves you to the marked column.
 
 The marks can be very useful when working on two related parts in a file. Suppose you have some text near the start of the file you need to look at, while working on some text near the end of the file.<br>
 Move to the text at the start and place the s (start) mark there:

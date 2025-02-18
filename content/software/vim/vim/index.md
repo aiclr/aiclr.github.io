@@ -91,6 +91,12 @@ ___
 |`<\`| only matches at the begining of a word |`\>`| only matches the end of a word |
 |`/the\>`| 搜索 ***the*** 结尾的单词  |`/<\the`|搜索 ***the*** 开头的单词|
 |`/<\the\>`| 仅搜索 ***the*** |||
+|`/the$`|以 the 开头的行|`/^the`|以 the 结尾的行|
+|`/^the$`|仅有 the 的行，前后不能有空格等其他字符|||
+|`c.m`| com、cam、cum等|`the\.`| 转义点 搜索 the. |
+|named marks||||
+|`ma`| marks the place under the cursor as mark ****a****|`:marks`|查看所有marks；最多设置26个marks a到z|
+|***&#96;a***| 反引号移动到 ***a*** mark 所在位置|***'a***| 单引号 移动到 ***a*** mark所在行的开头|
 |`:set ignorecase`| 搜索时忽略大小写 |`:set noignorecase`| 搜索时不忽略大小写 |
 |`:set hlsearch`|高亮显示搜索结果|`:set nohlsearch`|关闭高亮|
 |`:nohlsearch`|only remove the highlight||does not reset the option|
@@ -186,6 +192,50 @@ ___
         | earlier text     |             | later text       |
         | line with cursor |             | later text       |
         +------------------+             +------------------+
+
+        /the
+
+        the solder holding one of the chips melted and the
+        xxx                       xxx                  xxx
+
+       /the$
+
+        the solder holding one of the chips melted and the
+                                                       xxx
+
+       /^the
+
+        the solder holding one of the chips melted and the
+        xxx
+
+        c.m
+
+        We use a computer that became the cummin winter.
+                 xxx             xxx      xxx
+
+        ter.
+
+        We use a computer that became the cummin winter.
+                      xxxx                          xxxx
+
+        ter\.
+
+        We use a computer that became the cummin winter.
+                                                    xxxx
+
+             |  example text   ^             |
+        33G  |  example text   |  CTRL-O     | CTRL-I
+             |  example text   |             |
+             V  line 33 text   ^             V
+             |  example text   |             |
+       /^The |  example text   |  CTRL-O     | CTRL-I
+             V  There you are  |             V
+                example text
+
+        '       The cursor position before doing a jump
+        "       The cursor position when last editing the file
+        [       Start of the last change
+        ]       End of the last change
 ```
 
 ##

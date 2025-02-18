@@ -93,7 +93,7 @@ Read this from start to end to learn the essential commands.
 - [03.1    Word movement](../getting_started/usr_03#031-word-movement)
 - [03.2    Moving to the start or end of a line](../getting_started/usr_03#032-moving-to-the-start-or-end-of-a-line)
 - [03.3    Moving to a character](../getting_started/usr_03#033-moving-to-a-character)
-- [03.4    Matching a paren](../getting_started/usr_03#034-matching-a-paren)
+- [03.4    Matching a parenthesis](../getting_started/usr_03#034-matching-a-parenthesis)
 - [03.5    Moving to a specific line](../getting_started/usr_03#035-moving-to-a-specific-line)
 - [03.6    Telling where you are](../getting_started/usr_03#036-telling-where-you-are)
 - [03.7    Scrolling around](../getting_started/usr_03#037-scrolling-around)

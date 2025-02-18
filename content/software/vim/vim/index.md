@@ -9,6 +9,9 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 
 - [help](../user_manual/getting_started/usr_02#028-finding-help)
 
+___
+___
+
 ## MODE
 
 ```text
@@ -22,12 +25,26 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 **normal mode** `i` -> **insert mode** `<Esc>` -> **normal mode**
 **normal mode** `v` -> **visual mode** `<Esc>` -> **normal mode**
 
-|editing commands||||
+| editing commands ||||
 |---|---|---|---|
-|a|append 拼接到光标位置|i|insert 插入到光标位置|
-|A|光标行尾拼接|I|光标行首插入|
-|o|光标下方新增一行|O|光标上方新增一行|
-|s|删除光标所在字符|S|删除光标所在行|
+| a | append 拼接到光标位置 | i | insert 插入到光标位置 |
+| A | 光标行尾拼接 | I | 光标行首插入 |
+| o | 光标下方新增一行 | O | 光标上方新增一行 |
+| s | 删除光标所在字符 | S | 删除光标所在行 |
+
+___
+___
+
+## undo & redo
+
+| undo & redo ||
+|:---|:---|
+| u      | undoes the last edit |
+| CTRL-R | (redo) to reverse the preceding command.undoes the undo |
+| U      | (undo line) undoes all the changes made on the last line that was edited |
+
+___
+___
 
 ## Getting out
 
@@ -36,6 +53,9 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 - `:w` write
 - `:q` quit
 - `:q!` fource quit without write
+
+___
+___
 
 ## Moving around
 
@@ -48,13 +68,32 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 ||one of the most useful movement commands||single-character search command|
 |`fx`|searches forward in the line for the single character x|`Fx`|the backward version of `fx` command|
 |`tx`|works like the `fx` command, except it stops one character before the searched character.|`Tx`| the backward version of `tx` command|
-|`%`|括号匹配跳转|
+|`%`|括号`()[]{}`匹配跳转|
 |***G***|跳转到末行|***nG***|跳转到n行|
 |***gg***|跳转到首行|
 |***H***|移动光标到当前页的第一行|
 |***M***|移动光标到当前页的中间行|
 |***L***|移动光标到当前页的最后一行|
-| * |移动光标到上一个insert位置|
+||to scroll one line at a time||一次滚动一行|
+|`CTRL-E`|scroll up|`CTRL-Y`|scroll down|
+||To scroll a whole screen at a time||一次滚动一屏|
+|`CTRL-F`|To scroll forward|`CTRL-B`|To scroll backward|
+|`zz`| To see the context of the line with the cursor ||将光标所在行滚动到屏幕中间位置|
+|`zt`|put the cursor line at the top|||
+|`zb`|put the cursor line at the bottom|||
+||simple searches|||
+| `*` | 从上往下搜索光标所在单词 |`#`|从下往上搜索光标所在单词|
+|`/include`| `n` 从上往下搜索 ***include***| `N` 从下往上搜索 ***include***|
+|`3/include`|goes to the third match of ***include***|||
+|`?include`| `n` 从下往上搜索 ***include***| `N` 从上往下搜索 ***include***|
+|`4?include`|goes the the fouth match of ***include***|||
+| `.*[]^%/\?~$` |特殊字符需要使用 `\` 转义|||
+|`<\`| only matches at the begining of a word |`\>`| only matches the end of a word |
+|`/the\>`| 搜索 ***the*** 结尾的单词  |`/<\the`|搜索 ***the*** 开头的单词|
+|`/<\the\>`| 仅搜索 ***the*** |||
+|`:set ignorecase`| 搜索时忽略大小写 |`:set noignorecase`| 搜索时不忽略大小写 |
+|`:set hlsearch`|高亮显示搜索结果|`:set nohlsearch`|关闭高亮|
+|`:nohlsearch`|only remove the highlight||does not reset the option|
 
 ```text
         This is a line with example text
@@ -119,7 +158,37 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
                         | sample text               |
                 L -->   | text sample text          |
                         +---------------------------+
+
+                                       +----------------+
+                                       | some text      |
+                                       | some text      |
+                                       | some text      |
+        +---------------+              | some text      |
+        | some text     |  CTRL-U  --> |                |
+        |               |              | 123456         |
+        | 123456        |              +----------------+
+        | 7890          |
+        |               |              +----------------+
+        | example       |  CTRL-D -->  | 7890           |
+        +---------------+              |                |
+                                       | example        |
+                                       | example        |
+                                       | example        |
+                                       | example        |
+                                       +----------------+
+
+        +------------------+             +------------------+
+        | earlier text     |             | earlier text     |
+        | earlier text     |             | earlier text     |
+        | earlier text     |             | earlier text     |
+        | earlier text     |   zz  -->   | line with cursor |
+        | earlier text     |             | later text       |
+        | earlier text     |             | later text       |
+        | line with cursor |             | later text       |
+        +------------------+             +------------------+
 ```
+
+##
 
 
 |vim||||
@@ -152,10 +221,6 @@ Summary = 'Vim is a terminal text editor. It is an extended version of vi with a
 |***:s/old/new/g***|当前行所有old替换成new|
 |***:%s/old/new***|所有行第一个***old***替换成***new***|
 |***:%s/old/new/g***|所有old替换成new|
-|-|
-|undo & redo|
-|***u***|撤销一步|
-|***ctrl r***|取消撤销|
 |-|
 |visual model|
 |v|切换到visual model|

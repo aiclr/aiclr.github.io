@@ -124,7 +124,7 @@ One way to remember these commands is that `h` is on the left, `l` is on the rig
                    h     l
                      j
 ```
-The best way to learn these commands is by using them. Use the **i** command to insert some more lines of text. Then use the hjkl keys to move around and insert a word somewhere. Don't forget to press `<Esc>` to go back to Normal mode. The [vimtutor](../usr_01/#013-using-the-vim-tutor) is also a nice way to learn by doing.
+The best way to learn these commands is by using them. Use the **i** command to insert some more lines of text. Then use the hjkl keys to move around and insert a word somewhere. Don't forget to press `<Esc>` to go back to Normal mode. The [vimtutor](../usr_01#013-using-the-vim-tutor) is also a nice way to learn by doing.
 
 For Japanese users, Hiroshi Iwatani suggested using this:
 ```text
@@ -226,7 +226,7 @@ The next `u` command gives you the **u**, and so on:
 ```
 ### Note
 
-If you type `u` twice, and the result is that you get the same text back, you have Vim configured to work **Vi compatible**. Look here to fix this: [not-compatible](../usr_01/#not-compatible).
+If you type `u` twice, and the result is that you get the same text back, you have Vim configured to work **Vi compatible**. Look here to fix this: [not-compatible](../usr_01#not-compatible).
 
 This text assumes you work **The Vim Way**. You might prefer to use the good old **Vi way**, but you will have to watch out for small differences in the text then.
 
@@ -250,7 +250,7 @@ There's a special version of the undo command, the `U` (undo line) command.The u
                                         Undo "U" with "u"
         A intelligent
 ```
-The `U` command is a change by itself, which the `u` command undoes and `CTRL-R` redoes. This might be a bit confusing. Don't worry, with `u` and `CTRL-R` you can go to any of the situations you had. More about that in section [32.2](../../editing_effectively/usr_32/#322-numbering-changes)
+The `U` command is a change by itself, which the `u` command undoes and `CTRL-R` redoes. This might be a bit confusing. Don't worry, with `u` and `CTRL-R` you can go to any of the situations you had. More about that in section [32.2](../../editing_effectively/usr_32#322-numbering-changes)
 
 ___
 ___
@@ -318,7 +318,7 @@ To exit, use the `ZZ` command. This command writes the file and exits.
 
 ### Note:
 
-Unlike many other editors, Vim does not automatically make a backup file. If you type `ZZ`, your changes are committed and there's no turning back. You can configure the Vim editor to produce backup files;see [07.4](../usr_07/#074-backup-files).
+Unlike many other editors, Vim does not automatically make a backup file. If you type `ZZ`, your changes are committed and there's no turning back. You can configure the Vim editor to produce backup files;see [07.4](../usr_07#074-backup-files).
 
 ### DISCARDING CHANGES
 
@@ -367,7 +367,7 @@ After a few jumps, you might want to go back. `CTRL-T` (pop tag) takes you back 
 
 At the top of the help screen, there is the notation `*help.txt*`. This name between `*` characters is used by the help system to define a tag (hyperlink destination).
 
-See [29.1](../../editing_effectively/usr_29/#291-using-tags) for details about using tags.
+See [29.1](../../editing_effectively/usr_29#291-using-tags) for details about using tags.
 
 To get help on a given subject, use the following command:
 ```text
@@ -435,7 +435,7 @@ More information on how to use the help:
 ```text
         :help pattern.txt
 ```
-You can see the user guide topics [03.9](../usr_03/#039-simple-search-patterns) and [usr_27](../../editing_effectively/usr_27) in the introduction.
+You can see the user guide topics [03.9](../usr_03#039-simple-search-patterns) and [usr_27](../../editing_effectively/usr_27) in the introduction.
 
 3. Options are enclosed in single apostrophes. To go to the help topic for the list option:
 ```text
@@ -606,7 +606,7 @@ Also if you want to access a certain chapter in the help, the chapter number can
 ```text
         :help 10.1
 ```
-which goes to chapter [10.1](../usr_10/#101-record-and-playback-commands) in [usr_10.txt](../usr_10) and talks about recording macros.
+which goes to chapter [10.1](../usr_10#101-record-and-playback-commands) in [usr_10.txt](../usr_10) and talks about recording macros.
 
 19. Highlighting groups. Always start with hl-groupname. E.g.
 ```text

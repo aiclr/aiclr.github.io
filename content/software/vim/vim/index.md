@@ -21,9 +21,14 @@ ___
 - normal mode
 - insert mode
 - visual mode
+    - visual line mode
+    - visual block mode
 
 **normal mode** `i` -> **insert mode** `<Esc>` -> **normal mode**
 **normal mode** `v` -> **visual mode** `<Esc>` -> **normal mode**
+**normal mode** `V` -> **visual line mode** `<Esc>` -> **normal mode**
+**normal mode** `CTRL-V` -> **visual block mode** `<Esc>` -> **normal mode**
+**normal mode** `R` -> **replace mode** `<Esc>` -> **normal mode**
 
 | editing commands ||||
 |---|---|---|---|
@@ -236,6 +241,118 @@ ___
         "       The cursor position when last editing the file
         [       Start of the last change
         ]       End of the last change
+```
+
+## 编辑
+
+|编辑||||
+|:---|:---|:---|:---|
+|`d`| delete 删除指令（剪切）|`x`=`dl`|`x` 是 `dl` 的快捷指令|
+|`dw`|从光标位置开始删除一个单词（包括单词后面的空格，不包括光标前内容）|`2d4w`|执行两次，删除4个单词|
+|`de`|从光标位置开始删除一个单词（不包括单词后面的空格，不包括光标前内容）|`d2e`|执行一次，删除两个单词|
+|`d$`=`D`|从光标位置开始删除到行尾|`d^`|从光标位置开始删除到行首|
+|`dh`=`X`|`dj`|`dk`|`dl`=`x`|
+|`dd`|删除光标所在行|
+|`df>`|`d` 删除到 `f>` 搜索 ***>***的位置|
+|`c`| change 修改指令（开启 Insert mode）|
+|`c2wbe`|`c` change 操作符|`2w` 移除两个单词，并开启Insert mode|`be` 输入内容|
+|`cw`|同 `d`, 会开启 Insert mode|`2c2w`||
+|`ce`|同 `d`, 会开启 Insert mode|`c2e`||
+|`c$`|同 `d`, 会开启 Insert mode|`c^`|同 `d`, 会开启 Insert mode|
+|`cc`=`S`|删除光标所在行并开启 Insert mode|
+|`cis`|删除光标所在句子（不包括句子末尾的空格）|`cas`|删除光标所在句子（包括句子末尾的空格）|
+|`ch`|`cj`|`ck`|`cl`=`s`|
+|`r`| replace 替换指令||等待输入，替换光标位置的字符，不会切换到 Insert mode|
+|`rT`|将光标位置替换为 ***T***|`clT<Esc>` or `sT<Esc>`|功能同 `rT`|
+|`5rx`|从光标位置开始，将五个字符替换为 ***x***|
+|`r<Enter>`|将光标位置替换为换行|`4r<Enter>`|将光标位置开始的四个字符，替换为换行|
+|`.`|重复执行变更指令|
+|`p`|paste 粘贴指令|`xp`|快速转换光标字符与其后字符的位置|
+|`y`|yank 复制指令|
+|`yw`|同 `d`|`y2w`|
+|`ye`|同 `d`|`y2e`|
+|`y$`|同 `d`|`y^`|同 `d`|
+|`yy`|复制光标所在行|
+|`yh`|`yj`|`yk`|`yl`|
+|`"*yy`| 复制到 `*` 号粘贴板|`"*p`|从 `*` 粘贴板粘贴|
+|`"+yy`| 复制到 `+` 号粘贴板|`"+p`|从 `+` 粘贴板粘贴|
+|`*`|寄存器，与系统粘贴板交互|`+`|寄存器与系统粘贴板交互|
+
+```text
+        To err is human. To really foul up you need a computer.
+                         ------------------>
+                                 d4w
+
+        To err is human. you need a computer.
+###
+        To err is human. you need a computer.
+                        -------->
+                           d2e
+
+        To err is human. a computer.
+###
+        To err is human. a computer.
+                       ------------>
+                            d$
+
+        To err is human
+###
+        To err is human
+           ------->
+             c2wbe<Esc>
+
+        To be human
+###
+        c       the change operator
+        2w      move two words (they are deleted and Insert mode started)
+        be      insert this text
+        <Esc>   back to Normal mode
+###
+        x  stands for  dl  (delete character under the cursor)
+        X  stands for  dh  (delete character left of the cursor)
+        D  stands for  d$  (delete to end of the line)
+        C  stands for  c$  (change to end of the line)
+        s  stands for  cl  (change one character)
+        S  stands for  cc  (change a whole line)
+###
+        there is somerhing grong here
+        rT           rt    rw
+
+        There is something wrong here
+###
+        There is something wrong here
+                           5rx
+
+        There is something xxxxx here
+###
+                              To <B>generate</B> a table of <B>contents
+        f<   find first <     --->
+        df>  delete to >         -->
+        f<   find next <           --------->
+        .    repeat df>                     --->
+        f<   find next <                       ------------->
+        .    repeat df>                                     -->
+###
+        /four<Enter>    find the first string "four"
+        cwfive<Esc>     change the word to "five"
+        n               find the next "four"
+        .               repeat the change to "five"
+        n               find the next "four"
+        .               repeat the change
+                        etc.
+###
+        teh     th     the
+         x       p
+###
+x       delete character under the cursor (short for "dl")
+X       delete character before the cursor (short for "dh")
+D       delete from cursor to end of line (short for "d$")
+dw      delete from cursor to next start of word
+db      delete from cursor to previous start of word
+diw     delete word under the cursor (excluding white space)
+daw     delete word under the cursor (including white space)
+dG      delete until the end of the file
+dgg     delete until the start of the file
 ```
 
 ##

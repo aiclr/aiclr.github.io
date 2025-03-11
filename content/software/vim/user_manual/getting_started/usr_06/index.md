@@ -50,7 +50,7 @@ There can be a numberof reasons why you don't see colors:<br>
 - You terminal does not support colors.<br>
 Vim will use bold, italic and underlined text, but this doesn't look very nice. You probably will want to try to get a terminal with colors. For Unix, I recommend the xterm from the XFree86 project: [xfree-xterm](../../../syntax#xfree-xterm).
 - Your terminal does support colors, but Vim doesn't know this.<br>
-Make sure your $TERM setting is correct. For example, when using an xterm that supports colors: `setenv TERM xterm-color` or (depending on your shell): `TERM=xterm-color; export TERM`<br>
+Make sure your **$TERM** setting is correct. For example, when using an xterm that supports colors: `setenv TERM xterm-color` or (depending on your shell): `TERM=xterm-color; export TERM`<br>
 The terminal name must match the terminal you are using. If it still doesn't work, have a look at [xterm-color](../../../syntax#xterm-color-color-xterm), which shows a few ways to make Vim display colors (not only for an xterm).
 - The file type is not recognized.<br>
 Vim doesn't know all file types, and sometimes it's near to impossible to tell what language a file uses. Try this command: `:set filetype`<br>
@@ -63,7 +63,7 @@ You could try using a similar file type by manually setting it as mentioned abov
 
 Or the colors could be wrong:<br>
 - The colored text is very hard to read.<br>
-Vim guesses the background color that you are using. If it is black (or another dark color) it will use light colors for text. If it is white (or another light color) it will use dark colors for text. If Vim guessed wrong the text will be hard to read. To solve this, set the [background](../../../options#background) option. For a dark background: `:set background=dark` And for a light background: `:set background=light`<br>
+Vim guesses the background color that you are using. If it is black (or another dark color) it will use light colors for text. If it is white (or another light color) it will use dark colors for text. If Vim guessed wrong the text will be hard to read. To solve this, set the [background](../../../options#background-bg) option. For a dark background: `:set background=dark` And for a light background: `:set background=light`<br>
 Make sure you put this _before_ the `:syntax enable` command, otherwise the colors will already have been set. You could do `:syntax reset` after setting `background` to make Vim set the default colors again.
 - The colors are wrong when scrolling bottom to top.<br>
 Vim doesn't read the whole file to parse the text. It starts parsing wherever you are viewing the file. That saves a lot of time, but sometimes the colors are wrong. A simple fix is hitting `CTRL-L`. Or scroll back a bit and then forward again.<br>

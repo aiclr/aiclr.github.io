@@ -21,8 +21,8 @@ Before you can insert or delete text the cursor has to be moved to the right pla
 - [03.10   Using marks](#0310-using-marks)
 
 
-Next chapter: [usr_04.txt](../usr_04)  Making small changes
-Previous chapter: [usr_02.txt](../usr_02)  The first steps in Vim
+Next chapter: [usr_04.txt](../usr_04)  Making small changes<br>
+Previous chapter: [usr_02.txt](../usr_02)  The first steps in Vim<br>
 Table of contents: [usr_toc.txt](../../usr_toc)
 
 ___

@@ -1,5 +1,1 @@
-themes/
-jsconfig.json
-.hugo_build.lock
-.gitkeep
-public/
+book

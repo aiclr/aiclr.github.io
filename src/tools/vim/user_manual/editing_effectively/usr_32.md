@@ -1,20 +1,4 @@
-usr_32 The undo tree `:help usr_32`
-
-Vim provides multi-level undo.  If you undo a few changes and then make a new change you create a branch in the undo tree.  This text is about moving through the branches.
-
-- [32.1    Undo up to a file write](#32.1-undo-up-to-a-file-write)
-- [32.2    Numbering changes](#32.2-numbering-changes)
-- [32.3    Jumping around the tree](#32.3-jumping-around-the-tree)
-- [32.4    Time travelling](#32.4-time-travelling)
-
-Next chapter: [usr_40](../tuning_vim/usr_40.md)  Make new commands<br/>
-Previous chapter: [usr_31](usr_31.md)  Exploiting the GUI<br/>
-Table of contents: [usr_toc](../index.md)
-
-___
-___
-
-## 32.2 Numbering changes
+#### 32.2 Numbering changes
 
 In section [02.5](../getting_started/usr_02.md#02.5-undo-and-redo) we only discussed one line of undo/redo. But it is also possible to branch off. This happens when you undo a few changes and then make a new change. The new changes become a branch in the undo tree.
 
@@ -46,7 +30,7 @@ You can noe use the `u`command to undo. If you do this twice you get to **one**.
 
 What matters here is the order in which the changes are made. Undo and redo are not considered changes in this context. After each change you have a new state of the text.
 
-### Note
+##### Note
 
 that only the changes are numbered, the text shown in the tree above has no identifier. They are mostly referred to by the number of the change above it. But sometimes by the number of one of the changes below it, especially when moving up in the tree, so that you know which change was just undone.
 

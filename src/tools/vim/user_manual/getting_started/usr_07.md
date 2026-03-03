@@ -1,23 +1,4 @@
-usr_07 Editing more than one file `help :usr_07`
-
-No matter how many files you have, you can edit them without leaving Vim. Define a list of files to work on and jump from one to the other. Copy text from one file and put it in another one.
-
-- [07.1    Edit another file](#071-edit-another-file)
-- [07.2    A list of files](#072-a-list-of-files)
-- [07.3    Jumping from file to file](#073-jumping-from-file-to-file)
-- [07.4    Backup files](#074-backup-files)
-- [07.5    Copy text between files](#075-copy-text-between-files)
-- [07.6    Viewing a file](#076-viewing-a-file)
-- [07.7    Changing the file name](#077-changing-the-file-name)
-
-Next chapter: [usr_08.txt](usr_08.md)  Splitting windows<br>
-Previous chapter: [usr_06.txt](usr_06.md)  Using syntax highlighting<br>
-Table of contents: [usr_toc.txt](../index.md)
-
-___
-___
-
-## 07.1 Edit another file
+#### 07.1 Edit another file
 
 So far you had to start Vim for every file you wanted to edit. There is a simple way. To start editing another file, use this command:
 ```text
@@ -49,7 +30,7 @@ The text with changes is still there, but you can't see it. This is further expl
 ___
 ___
 
-## 07.2 A list of files
+#### 07.2 A list of files
 
 You can start Vim to edit a sequence of files. For example:
 ```shell
@@ -86,7 +67,7 @@ This is short for ***arguments***. The output might look like this:
 ```
 These are the files you started Vim with. The one you are currently editing, ***two.c***, is in square brackets.
 
-### MOVING TO OTHER ARGUMENTS
+##### MOVING TO OTHER ARGUMENTS
 
 To go back one file:
 ```text
@@ -111,7 +92,7 @@ You can use a count for `:next` and `:previous`. To skip two files forward:
         :2next
 ```
 
-### AUTOMATIC WRITING
+##### AUTOMATIC WRITING
 
 When moving around the files and making changes, you have to remember to use `:write`. Otherwise you will get an error message. If you are sure you always want to write modified files, you can tell Vim to automatically write them:
 ```text
@@ -122,7 +103,7 @@ When you are editing a file which you may not want to write, switch it off again
         :set noautowrite
 ```
 
-### EDITING ANOTHER LIST OF FILES
+##### EDITING ANOTHER LIST OF FILES
 
 You can redefine the list of files without the need to exit Vim and start it again. Use this command to edit three other files:
 ```text
@@ -134,7 +115,7 @@ Or use a wildcard, like it's used in the shell:
 ```
 Vim will take you to the first file in the list. Again, if the current file has changes, you can either write the file first, or use `:args!` (wirh ! added) to abandon the changes.
 
-### arglist-quit
+##### arglist-quit
 
 DID YOU EDIT THE LAST FILE?
 
@@ -147,7 +128,7 @@ If you really want to exit, just do it again. Then it will work (but not when yo
 ___
 ___
 
-## 07.3 Jumping from file to file
+#### 07.3 Jumping from file to file
 
 To quickly jump between two files, press `CTRL-^` (on English-US keyboards the ^ is above the 6 key). Example:
 ```text
@@ -165,7 +146,7 @@ You are in three.c. Notice that the `CTRL-^` command does not change the idea of
 
 The file you were previously editing is called the `alternate` file. When you just started Vim `CTRL-^` will not work, since there isn't a previous file.
 
-###  PREDEFINED MARKS
+#####  PREDEFINED MARKS
 
 After jumping to another file, you can use two predefined marks which are very useful:
 ```
@@ -177,7 +158,7 @@ This takes you to the position where the cursor was when you left the file. Anot
 ```
 Suppose you are editing the file *one.txt*. Somewhere halfway through the file you use `x` to delete a character. Then you go to the last line with `G` and write the file with `:w`. You edit several other files, and then use `:edit one.txt` to come back to *one.txt*. If you now use ***&#96;"*** Vim jumps to the last line of the file. Using ***&#96;.*** takes you to the position where you deleted the character. Even when you move around in the file ***&#96;"*** and ***&#96;.*** will take you to the remembered position. At least until you make another change or leave the file.
 
-### FILE MARKS
+##### FILE MARKS
 
 In section [03.10](usr_03.md#0310-using-marks) was explained how you can place a mark in a file with `mx` and jump to that position with ***&#96;x***. That works within one file. If you edit another file and place marks there, these are specific for that file. Thus each file has its own set of marks, they are local to the file.<br>
 So far we were using marks with a lowercase letter. There are also marks with an uppercase letter. These are global, they can be used from any file. For example suppose that we are editing the file *foo.txt*. Go to halfway down the file ("50%") and place the F mark there (F for foo):
@@ -206,7 +187,7 @@ Don't forget that you can use `CTRL-O` and `CTRL-I` to jump to older and newer p
 ___
 ___
 
-## 07.4 Backup files
+#### 07.4 Backup files
 
 Usually Vim does not produce a backup file. If you want to have one, all you need to do is execute the following command:
 ```text
@@ -223,7 +204,7 @@ Another option that matters here is [backupdir](../../options.md#backupdir-bdir)
 Note:<br>
 When the [backup](../../options.md#backup-bk-nobackup-nobk) option isn't set but the [writebackup](../../options.md#writebackup-wb-nowritebackup-nowb) is, Vim will still create a backup file. However, it is deleted as soon as writing the file was completed successfully. This functions as a safety against losing your original file when writing fails in some way (disk full is the most common cause; being hit by lightning might be another, although less common).
 
-### KEEPING THE ORIGINAL FILE
+##### KEEPING THE ORIGINAL FILE
 
 If you are editing source files, you might want to keep the file before you make any changes. But the backup file will be overwritten each time you write the file. Thus it only contains the previous version, not the first one.<br>
 To make Vim keep the original file, set the [patchmode](../../options.md#patchmode-pm-e205-e206) option. This specifies the extension used for the first backup of a changed file. Usually you would do this:
@@ -237,7 +218,7 @@ If you leave [patchmode](../../options.md#patchmode-pm-e205-e206) empty (that is
 ___
 ___
 
-## 07.5 Copy text between files
+#### 07.5 Copy text between files
 
 This explains how to copy text from one file to another. Let's start with a simple example. Edit the file that contains the text you want to copy. Move the cursor to the start of the text and press `v`. This starts Visual mode. Now move the cursor to the end of the text and press `y`. This yanks (copies) the selected text.<br>
 To copy the above paragraph, you would do:
@@ -255,7 +236,7 @@ Now edit the file you want to put the text in. Move the cursor to the character 
 Of course you can use many other commands to yank the text. For example, to select whole lines start Visual mode with `V`. Or use `CTRL-V` to select a rectangular block. Or use `Y` to yank a single line, `yaw` to yank-a-word, etc.<br>
 The `p` command puts the text after the cursor. Use `P` to put the text before the cursor. Notice that Vim remembers if you yanked a whole line or a block, and puts it back that way.
 
-### USING REGISTERS
+##### USING REGISTERS
 
 When you want to copy several pieces of text from one file to another, having to switch between the files and writing the target file takes a lot of time. To avoid this, copy each piece of text to its own register.<br>
 A register is a place where Vim stores text. Here we will use the registers named a to z (later you will find out there are others). Let's copy a sentence to the f register (f for First):
@@ -285,7 +266,7 @@ When you delete text, you can also specify a register. Use this to move several 
 ```
 Again, the register specification comes before the delete command `d`.
 
-### APPENDING TO A FILE
+##### APPENDING TO A FILE
 
 When collecting lines of text into one file, you can use this command:
 ```text
@@ -297,7 +278,7 @@ To append only a few lines, select them in Visual mode before typing `:write`. I
 ___
 ___
 
-## 07.6 Viewing a file
+#### 07.6 Viewing a file
 
 Sometimes you only want to see what a file contains, without the intention to ever write it back. There is the risk that you type `:w` without thinking and overwrite the original file anyway. To avoid this, edit the file read-only.<br>
 To start Vim in readonly mode, use this command:
@@ -333,7 +314,7 @@ You could use the -M argument to setup Vim to work in a viewer mode. This is onl
 ___
 ___
 
-## 07.7 Changing the file name
+#### 07.7 Changing the file name
 
 A clever way to start editing a new file is by using an existing file that contains most of what you need. For example, you start writing a new program to move a file. You know that you already have a program that copies a file, thus you start with:
 ```text
@@ -356,5 +337,3 @@ This protects you from accidentally overwriting another file.
 
 ___
 ___
-
-Next chapter: [usr_08.txt](usr_08.md) Splitting windows

@@ -1,27 +1,6 @@
-usr_05 Set your settings `:help usr_05`
+#### 05.1 The vimrc file
 
-Vim can be tuned to work like you want it to. This chapter shows you how to make Vim start with options set to different values. Add pligins to extend Vim's capabilities. Or define your own macros.
-
-- [05.1    The vimrc file](#051-the-vimrc-file)
-- [05.2    The example vimrc file explained](#052-the-example-vimrc-file-explained)
-- [05.3    The defaults.vim file explained](#053-the-defaultvim-file-explained)
-- [05.4    Simple mappings](#054-simple-mappings)
-- [05.5    Adding a package](#055-adding-a-package)
-- [05.6    Adding a plugin](#056-adding-a-plugin)
-- [05.7    Adding a help file](#057-adding-a-help-file)
-- [05.8    The option window](#058-the-option-window)
-- [05.9    Often used options](#059-often-used-options)
-
-Next chapter: [usr_06.txt](usr_06.md) Using syntax highlighting<br>
-Previous chapter: [usr_04.txt](usr_04.md) Making small changes<br>
-Table of contents: [usr_toc.txt](../index.md)
-
-___
-___
-
-## 05.1 The vimrc file
-
-### vimrc intro
+##### vimrc intro
 
 You probably got tired of typing commands that you use very often. To start Vim with all your favorite option settings and mappings, you write them in what is called the vimrc file. Vim executes the commands in this file when it starts up.
 
@@ -57,9 +36,9 @@ This chapter only explains the most basic items. For more information on how to 
 ___
 ___
 
-## 05.2 The example vimrc file explained
+#### 05.2 The example vimrc file explained
 
-### vimrc_example.vim
+##### vimrc_example.vim
 
 In the first chapter was explained how the example vimrc (include in the Vim distribution) file can be used to make Vim startup in not-compatible mode (see [not-compatible](usr_01.md#not-compatible)). The file can be found here:
 ```text
@@ -113,9 +92,9 @@ This loads the `matchit` plugin if the required features are available. It makes
 ___
 ___
 
-## 05.3 The default.vim file explained
+#### 05.3 The default.vim file explained
 
-### defaults.vim-explained
+##### defaults.vim-explained
 
 The [defaults.vim](../../starting.md#defaults.vim-e1187) file is loaded when the user has no vimrc file. When you create a new vimrc file, add this line near the top to keep using it:
 ```text
@@ -208,7 +187,7 @@ This mapping yanks the visually selected text and searches for it in ***C*** fil
 ```
 Enable highlighting files in color. See [syntax](../../options.md#syntax).
 
-### vimrc-filetype
+##### vimrc-filetype
 
 ```text
         filetype plugin indent on
@@ -223,7 +202,7 @@ Many different filetypes are edited with different options. For example, when yo
 3. Using indent files<br>
 When editing programs, the indent of a line can often be computed automatically. Vim comes with these indent rules for a number of filetypes. See [:filetype-indent-on](../../filetype.md#filetype-indent-on) and [indentexpr](../../options.md#indentexpr-inde).
 
-### restore-cursor last-position-jump
+##### restore-cursor last-position-jump
 
 ```text
     autocmd BufReadPost *
@@ -246,7 +225,7 @@ Prevent that the langmap option applies to characters that result from a mapping
 ___
 ___
 
-## 05.4 Simple mappings
+#### 05.4 Simple mappings
 
 A mapping enables you to bind a set of Vim commands to a single key. Suppose, for example, that you need to surround certain words with curly braces. In other words, you need to change a word such as `amount` into `{amount}`. With the `:map` command, you can tell Vim that the `F5` key does this job. The command is as follows:
 ```text
@@ -281,9 +260,9 @@ The `:map` command (with no arguments) lists your current mappings. At least the
 ___
 ___
 
-## 05.5 Adding a package
+#### 05.5 Adding a package
 
-### add-package matchit-install
+##### add-package matchit-install
 
 A package is a set of files that you can add to Vim. There are two kinds of packages: optional and automatically loaded on startup.
 
@@ -319,9 +298,9 @@ More information about packages can be found here: [packages](../../repeat.md#pa
 ___
 ___
 
-## 05.6 Adding a plugin
+#### 05.6 Adding a plugin
 
-### add-plugin plugin
+##### add-plugin plugin
 
 Vim's functionally can be extended by adding plugins. A plugin is nothing more than a Vim script file that is loaded automatically when Vim starts. You can add a plugin very easily by dropping it in your plugin directory.
 {not available when Vim was compiled without the **+eval** feature}
@@ -332,19 +311,19 @@ There are two types of plugins:
 
 The global plugins will be discussed first, then the filetype ones [add-filetype-plugin](#add-filetype-plugin-ftplugins)
 
-### GLOBAL PLUGINS
+##### GLOBAL PLUGINS
 
-#### standard-plugin
+######## standard-plugin
 
 When you start Vim, it will automatically load a number of global plugins. You don't have to do anything for this. They add functionality that most people will want to use, but which was implemented as a Vim script instead of being compiled into Vim. You can find them listed in the help index [standard-plugins-list](../../help.md#standard-plugin-list). Also see [load-plugins](../../starting.md#load-plugins).
 
-#### add-global-plugin
+######## add-global-plugin
 
 You can add a global plugin to add functionality that will always be  present when you use Vim. There are only two steps for adding a global plugin:
 1. Get a copy of the plugin.
 2. Drop it in the right directory.
 
-### GETTING A GLOBAL PLUGIN
+##### GETTING A GLOBAL PLUGIN
 
 Where can you find plugins?
 - Some are always loaded, you can see them in the directory ***$VIMRUNTIME/plugin***.
@@ -356,7 +335,7 @@ Where can you find plugins?
 Some plugins come as a vimball archive, see [vimball](../../pi_vimball.md#vba-vimball-vimball-contents).<br>
 Some plugins can be updated automatically, see [getscript](../../pi_getscript.md#glvs-contents-glvs-getscript-getlatestvimscripts).
 
-### USING A GLOBAL PLUGIN
+##### USING A GLOBAL PLUGIN
 
 First read the text in the plugin itself to check for any special conditions. Then copy the file to your plugin directory:
 
@@ -378,9 +357,9 @@ That's all! Now you can use the commands defined in this plugin.
 
 Instead of putting plugins directly into the ***plugin/*** directory, you may better organize them by putting them into subdirectories under ***plugin/***. As an example, consider using `~/.vim/plugin/perl/*.vim` for all your Perl plugins.
 
-### FILETYPE PLUGINS
+##### FILETYPE PLUGINS
 
-#### add-filetype-plugin ftplugins
+######## add-filetype-plugin ftplugins
 
 The Vim distribution comes with a set of plugins for different filetypes that you can start using with this command:
 ```text
@@ -392,13 +371,13 @@ If you are missing a plugin for a filetype you are using, or you found a better 
 1. Get a copy of the plugin.
 2. Drop it in the right directory.
 
-### GETTING A FILETYPE PLUGIN
+##### GETTING A FILETYPE PLUGIN
 
 You can find them in the same places as the global plugins. Watch out if the type of file is mentioned, then you know if the plugin is a global or a filetype one. The scripts in `$VIMRUNTIME/macros` are global ones, the filetype plugins are in `$VIMRUNTIME/ftplugin`.
 
-### USING A FILETYPE PLUGIN
+##### USING A FILETYPE PLUGIN
 
-#### ftplugin-name
+######## ftplugin-name
 
 You can add a filetype plugin by dropping it in the right directory. The name of this directory is in the same directory mentioned above for global plugins, but the last part is `ftplugin`. Suppose you have found a plugin for the ***stuff*** filetype, and you are on Unix. Then you can move this file to the ftplugin directory:
 ```shell
@@ -441,9 +420,9 @@ Further reading:
 ___
 ___
 
-## 05.7 Adding a help file
+#### 05.7 Adding a help file
 
-### add-local-help
+##### add-local-help
 
 If you are lucky, the plugin you installed also comes with a help file. We will explain how to install the help file, so that you can easily find help for your new plugin.<br>
 Let us use the `doit.vim` plugin as an example. This plugin comes with documentation: `doit.txt`. Let's first copy the plugin to the right directory. This time we will do it from inside Vim. (You may skip some of the `mkdir` commands if you already have the directory.)
@@ -481,7 +460,7 @@ For writing a local help file, see [write-local-help](../writing_vim_script/usr_
 ___
 ___
 
-## 05.8 The option window
+#### 05.8 The option window
 
 If you are looking for an option that does what you want, you can search in the help files here: [options](../../options.md). Another way is by using this command:
 ```text
@@ -510,7 +489,7 @@ Position the cursor on the zero with `$`. Change it into a five with `r5`. Then 
 ___
 ___
 
-## 05.9 Often used options
+#### 05.9 Often used options
 
 There are an awful lot of options. Most of them you will hardly ever use. Some of the more useful ones will be mentioned here. Don't forget you can find more help on these options with the `:help` command, with single quotes before and after the option name. For example:
 ```text
@@ -521,7 +500,7 @@ In case you have messed up an option value, you can set it back to the default b
         :set iskeyword&
 ```
 
-### NOT WRAPPING LINES
+##### NOT WRAPPING LINES
 
 Vim normally wraps long lines, so that you can see all of the text. Sometimes it's better to let the text continue right of the window. Then you need to scroll the text left-right to see all of a long line. Switch wrapping off with this command:
 ```text
@@ -533,7 +512,7 @@ Vim will automatically scroll the text when you move to text that is not display
 ```
 This doesn't change the text in the file, only the way it is displayed.
 
-### WRAPPING MOVEMENT COMMANDS
+##### WRAPPING MOVEMENT COMMANDS
 
 Most commands for moving around will stop moving at the start and end of a line. You can change that whit the `whichwrap` option. This sets it to the default value:
 ```text
@@ -551,7 +530,7 @@ This is still only for Normal mode. To let `<Left>` and `<Right>` do this in Ins
 ```
 There are a few other flags that can be added, see [whichwrap](../../options.md#whichwrap-ww)
 
-### VIEWING TABS
+##### VIEWING TABS
 
 When there are tabs in a file, you cannot see where they are. To make them visible:
 ```text
@@ -564,7 +543,7 @@ A disadvantage is that this looks ugly when there are mant Tabs in a file. If yo
 ```
 Now every tab will be displayed as `>---` (with more or less `-`) and trailing white space as `-`. Looks a lot better, doesn't it?
 
-### KEYWORDS
+##### KEYWORDS
 
 The `iskeyword` option specifies which characters can appear in a word:
 ```text
@@ -587,7 +566,7 @@ To remove a character use `-=`. For example, to remove the underscore:
 ```
 This time a comma is automatically deleted.
 
-### ROOM FOR MESSAGES
+##### ROOM FOR MESSAGES
 
 When Vim starts there is one line at the bottom that is used for messages. When a message is long, it is either truncated, thus you can only see part of it, or the text scrolls and you have to press `<Enter>` to continue.<br>
 You can set the `cmdheight` option to the number of lines used for messages. Example:
@@ -598,5 +577,3 @@ This does mean there is less room to edit text, thus it's a compromise.
 
 ___
 ___
-
-Next chapter: [usr_06.txt](usr_06.md) Using syntax highlighting

@@ -1,20 +1,4 @@
-usr_11 Recovering from a crash `:help usr_11`
-
-Did your computer crash? And you just spent hours editing? Don't panic! Vim stores enough information to be able to restore most of your work. This chapter shows you how to get your work back and explains how the swap file is used.
-
-- [11.1    Basic recovery](#111-basic-recovery)
-- [11.2    Where is the swap file?](#112-where-is-the-swap-file)
-- [11.3    Crashed or not?](#113-crashed-or-not)
-- [11.4    Further reading](#114-further-reading)
-
-Next chapter: [usr_12.txt](usr_12.md) Clever tricks<br>
-Previous chapter: [usr_10.txt](usr_10.md) Making big changes<br>
-Table of contents: [usr_toc.txt](../index.md)
-
-___
-___
-
-## 11.1 Basic recovery
+#### 11.1 Basic recovery
 
 In most cases recovering a file is quite simple, assuming you know which file you were editing (and the harddisk is still working). Start Vim on the file, with the `-r` argument added:
 ```shell
@@ -62,7 +46,7 @@ You must be in the right directory, otherwise Vim can't find the swap file.
 ___
 ___
 
-## 11.2 Where is the swap file?
+#### 11.2 Where is the swap file?
 
 Vim can store the swap file in several places. Normally it is in the same directory as the original file. To find it, change to the directory of the file, and use:
 ```shell
@@ -89,7 +73,7 @@ The output could look like this:
 If there are several swap files that look like they may be the one you want to use, a list is given of these swap files and you are requested to enter the number of the one you want to use. Carefully look at the dates to decide which one you want to use.<br>
 In case you don't know which one to use, just try them one by one and check the resulting files if they are what you expected.
 
-### USING A SPECIFIC SWAP FILE
+##### USING A SPECIFIC SWAP FILE
 
 If you know which swap file needs to be used, you can recovering by giving the swap file name. Vim will then find out the name of the original file from the swap file.
 
@@ -107,9 +91,9 @@ Vim tries to find the swap file by searching the directories in the [dir](../../
 ___
 ___
 
-## 11.3 Crashed or not?
+#### 11.3 Crashed or not?
 
-### ATTENTION E325
+##### ATTENTION E325
 
 Vim tries to protect you from doing stupid things. Suppose you innocently start editing a file, expecting the contents of the file to show up. Instead, Vim produces a very long message:
 ```text
@@ -160,7 +144,7 @@ Note that in the following situation Vim knows the swap file is not useful and w
 
 You can programmatically deal with this situation with the [FileChangedShell](../../autocmd.md#filechangedshell) autocommand event.
 
-### UNREADABLE SWAP FILE
+##### UNREADABLE SWAP FILE
 
 Sometimes the line
 ```text
@@ -174,7 +158,7 @@ It is slightly bad if you don't have read permission for the swap file. You may 
 
 It is very bad if it means there is a physical read error on the disk containing the swap file. Fortunately, this almost never happens. You may want to view the file read-only at first (if you can), to see the extent of the changes that were ***forgotten***. If you are the one in charge of that file, be prepared to redo your last changes.
 
-### swap-exists-choices
+##### swap-exists-choices
 
 WHAT TO DO?
 
@@ -207,7 +191,7 @@ For programmatic access to the swap file, see [swapinfo()](../../builtin.md#swap
 ___
 ___
 
-## 11.4 Further reading
+#### 11.4 Further reading
 
 - [swap-file](../../recover.md#swap-file)  An explanation about where the swap file will be created and what its name is.
 - [:preserve](../../recover.md#pre-preserve-e313-e314)  Manually flushing the swap file to disk.
@@ -221,5 +205,3 @@ ___
 
 ___
 ___
-
-Next chapter: [usr_12.txt](usr_12.md) Clever tricks

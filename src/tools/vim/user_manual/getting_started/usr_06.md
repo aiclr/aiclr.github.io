@@ -1,22 +1,4 @@
-usr_06 Using syntax highlighting `:help usr_06`
-
-Black and white text is boring. With colors your file comes to life. This not only looks nice, it also speeds up your work. Change the colors used for the different sorts of text. Print your text, with the colors you see on the screen.
-
-- [06.1    Switching it on](#061-switching-it-on)
-- [06.2    No or wrong colors?](#062-no-or-wrong-colors)
-- [06.3    Different colors](#063-different-colors)
-- [06.4    With colors or without colors](#064-with-colors-or-without-colors)
-- [06.5    Printing with colors](#065-printing-with-colors)
-- [06.6    Further reading](#066-further-reading)
-
-Next chapter: [usr_07.txt](usr_07.md) Editing more than one file<br>
-Previous chapter: [usr_05.txt](usr_05.md) Set your settings<br>
-Table of contents: [usr_toc.txt](../index.md)
-
-___
-___
-
-## 06.1 switching it on
+#### 06.1 switching it on
 
 It all starts with one simple command:
 ```text
@@ -37,7 +19,7 @@ If you want syntax highlighting only in the GUI version, put the `:syntax enable
 ___
 ___
 
-## 06.2 No or wrong colors?
+#### 06.2 No or wrong colors?
 
 There can be a numberof reasons why you don't see colors:<br>
 - You terminal does not support colors.<br>
@@ -65,9 +47,9 @@ For a real fix, see [:syn-sync](../../syntax.md#syn-sync-e403-e404). Some syntax
 ___
 ___
 
-## 06.3 Different colors
+#### 06.3 Different colors
 
-### :syn-default-override
+##### :syn-default-override
 
 If you don't like the default colors, you can select another color scheme. In the GUI use the Edit/Color Scheme menu. You can also type the command:
 ```text
@@ -133,7 +115,7 @@ As a color scheme author, you should be able to reply on some color names for GU
 ___
 ___
 
-## 06.4 With colors or without colors
+#### 06.4 With colors or without colors
 
 Displaying text in color takes a lot of effort. If you find the displaying too slow, you might want to disable syntax highlighting for a moment:
 ```text
@@ -147,7 +129,7 @@ If you want to stop highlighting completely use:
 ```
 This will completely disable syntax highlighting and remove it immediately for all buffers. See [:syntax-off](../../syntax.md#syntax-off-syn-off) for more details.
 
-### :syn-manual
+##### :syn-manual
 
 If you want syntax highlighting only for specific files, use this:
 ```text
@@ -161,9 +143,9 @@ This will enable the syntax highlighting, but not switch it on automatically whe
 ___
 ___
 
-## 06.5 Printing with colors
+#### 06.5 Printing with colors
 
-### syntax-printing
+##### syntax-printing
 
 In the MS-Windows version you can print the current file with this command:
 ```text
@@ -205,12 +187,10 @@ Instead of printing, you could also put the HTML file on a web server, and let o
 ___
 ___
 
-## 06.6 Further reading
+#### 06.6 Further reading
 
 [usr_44.txt](../tuning_vim/usr_44.md) Your own syntax highlighted.<br>
 [syntax](../../syntax.md#syntax-syntax-highlighting-coloring) All the details.
 
 ___
 ___
-
-Next chapter: [usr_07.txt](usr_07.md) Editing more than one file<br>

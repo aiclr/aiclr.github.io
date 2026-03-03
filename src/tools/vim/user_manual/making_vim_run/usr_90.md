@@ -1,33 +1,17 @@
-usr_90 Installing Vim `:help usr_90`
-
-Before you can use Vim you have to install it. Depending on your system it's simple or easy. This Chapter gives a few hints and also explains how upgrading to a new version is done.
-
-- [90.1    Unix](#901-unix)
-- [90.2    MS-Windows](#902-ms-windows)
-- [90.3    Upgrading](#903-upgrading)
-- [90.4    Common installation issues](#904-common-installation-issues)
-- [90.5    Uninstalling Vim](#905-uninstalling-vim)
-
-Previous chapter: [usr_52.txt](../writing_vim_script/usr_52.md)  Write plugins using Vim9 script
-Table of contents: [usr_toc.txt](../index.md)
-
-___
-___
-
-## 90.1 Unix
+#### 90.1 Unix
 
 First you have to decide if you are going to install Vim system-wide or for a single user. The installation is almost the same, but the directory where Vim is installed in differs.<br/>
 For a system-wide installation the base directory ***/usr/local*** is often used. But this may be different for your system. Try finding out where other packages are installed.<br/>
 When installing for a single user, you can use your home directory as the base. The files will be placed in subdirectories like ***bin*** and ***shared/vim***.
 
-### FROM A PACKAGE
+###### FROM A PACKAGE
 
 You can get precompiled binaries for many different UNIX systems. There is a long list with links on this page: [http://www.vim.org/binaries.html](http://www.vim.org/binaries.html)<br/>
 Volunteers maintain the binaries, so they are often out of date. It is a good idea to compile your own UNIX version from the source. Also, creating the editor from the source allows you to control which features are compiled.<br/>
 This does require a compiler though.<br/>
 If you have a Linux distribution, the `vi` program is probably a minimal version of Vim. It doesn't do syntax highlighting, for example. Try finding another Vim package in your distribution, or search on the web site.
 
-### FROM SOURCES
+###### FROM SOURCES
 
 To compile and install Vim, you will need the following:
 - A C compiler (GCC preferred)
@@ -39,24 +23,24 @@ Or use the home site ***ftp.vim.org***, if you think it's fast enough. Go to the
 You can get the files for Unix in one big archive that contains everything: ***vim-8.2.tar.bz2***<br>
 You need the ***bizp2*** program to uncompress it.
 
-### COMPILING
+###### COMPILING
 
 First create a top directory to work in, for example:
-```shell
+```sh
 mkdir ~/vim
 cd ~/vim
 ```
 Then unpack the archives there. You can unpack it like this:
-```shell
+```sh
 tar xf path/vim-8.2.tar.bz2
 ```
 If your tar command doesn't support ***bz2*** directly:
-```shell
+```sh
 bzip2 -d -c path/vim-8.2.tar.bz2|tar xf -
 ```
 Change ***path*** to where you have downloaded the file.<br/>
 If you are satisfied with getting the default features, and your environment is setup properly, you should be able to compile Vim with just this:
-```shell
+```sh
 cd vim82/src
 make
 ```
@@ -65,10 +49,10 @@ If there are errors while compiling, carefully look at the error messages.<br/>
 There should be a hint about what went wrong. Hopefully you will be able to correct it. You might have to disable some features to make Vim compile. <br/>
 Look in the ***Makefile*** for specific hints for your system.
 
-### TESTING
+###### TESTING
 
 Now you can check if compiling worked OK:
-```shell
+```sh
 make test
 ```
 This will run a sequence of test scripts to verify that Vim works as expected.<br/>
@@ -81,7 +65,7 @@ If it is alright you will finally see:
 If you get ***TEST FAILURE*** some test failed. If there are one or two messages about failed tests, Vim might still work, but not perfectly. If you see a lot of error messages or Vim doesn't finish until the end, there must be something wrong. Either try to find out yourself, or find someone who can solve it.<br/>
 You could look in the [maillist-archive](http://www.vim.org/maillist.php) for a solution. If everything else fails, you could ask in the vim [maillist](#) if someone can help you.
 
-### INSTALLING
+###### INSTALLING
 
 if you want to install in your home directory, edit the ***Makefile*** and search for a line:
 ```text
@@ -91,7 +75,7 @@ Remove the `#` at the start of the line.<br/>
 When installing for the whole system, Vim has most likely already selected a good installation directory for you. You can also sprcify one, see below.<br/>
 You need to become root for the following.<br/>
 To install Vim do:
-```shell
+```sh
 make install
 ```
 That should move all the relevant files to the right place. Now you can try running vim to verify that it works. Use two simple tests to check if Vim can find its runtime files:
@@ -104,12 +88,12 @@ If this doesn't work, use this command to check where Vim is looking for the run
         :echo $VIMRUNTIME
 ```
 You can also start Vim with the `-V` argument to see what happens during startup:
-```shell
+```sh
 vim -V
 ```
 Don't forget that the user manual assumes you Vim in a certain way. After installing Vim, follow the instructions at [not-compatible](../getting_started/usr_01.md#not-compatible) to make Vim work as assumed in this manual.
 
-### SELECTING FEATURES
+###### SELECTING FEATURES
 
 Vim has many ways to select features. One of the simple ways is to edit the Makefile. There are many directions and examples. Often you can enable or disable a feature by uncommenting a line.<br/>
 An alternative is to run `configure` separately. This allows you to specify configuration options manually. The disadvantage is that you have to figure out what exactly to type.<br/>
@@ -135,7 +119,7 @@ Some of the most interesting configure arguments follow. These can also be enabl
                                         makes startup faster.
 ```
 To see the whole list use:
-```shell
+```sh
 ./configure --help
 ```
 You can find a bit of explanation for each feature, and links for more information here: [feature-list](#).<br/>
@@ -144,7 +128,7 @@ For the adventurous, edit the file ***feature.h***. You can also change the sour
 ___
 ___
 
-## 90.2 MS-Windows
+#### 90.2 MS-Windows
 
 There are two ways to install the Vim program for Microsoft Windows. You can uncompress several archives, or use a self-installing big archive. Most users with fairly recent computers will prefer the second method. For the first one, you will need:
 - An archive with binaries for Vim.
@@ -190,30 +174,30 @@ CHeck the file ***src/INSTALLpc.txt*** for hints.
 ___
 ___
 
-## 90.3 upgrading
+#### 90.3 upgrading
 
 If you are running one version of Vim and want to install another, here is what to do.
 
-### UNIX
+###### UNIX
 
 When you type ***make install*** the runtime files will be copied to a directory which is specific for this version. Thus they will not overwrite a previous version. This makes it possible to use two or more versions next to each other.<br/>
 The executable ***vim*** will overwrite an older version. If you don't care about keeping the old version, running ***make install*** will work fine. You can delete the old runtime files manually. Just delete the directory with the version number in it and all files below it. Example:
-```shell
+```sh
 rm -rf /usr/local/share/vim/vim74
 ```
 There are normally no changed files below this directory. If you did change the ***filetype.vim*** file, for example, you better merge the changes into the new version before deleting it.
 
 If you are careful and want to try out the new version for a while before switching to it, install the new version under another name. You need to specify a configure argument. For example:
-```shell
+```sh
 ./configure --with-vim-name=vim8
 ```
 Before running ***make install***, you could use ***make -n install*** to check that no valuable existing files are overwritten.<br/>
 When you finally decide to switch to the new version, all you need to do is to rename the binary to ***vim***. For example:
-```shell
+```sh
 mv /usr/local/bin/vim8 /usr/local/bin/vim
 ```
 
-### MS-WINDOWS
+###### MS-WINDOWS
 
 Upgrading is mostly equal to installing a new version. Just unpack the files in the same place as the previous version. A new directory will be created. e.g., ***vim82***, for the files of the new version. Your runtime files, ***vimrc*** file, ***viminfo***, etc. will be left alone.<br/>
 If you want to run the new version next to the old one, you will have to do some handwork. Don't run the install program, it will overwrite a few files of the old version. Execute the new binaries by specifying the full path. The program should be able to automatically find the runtime files for the right version. However, this won't work if you set the ***$VIMRUNTIME*** variable somewhere.<br/>
@@ -222,14 +206,14 @@ If you are satisfied with the upgrade, you can delete the files of the previous 
 ___
 ___
 
-## 90.4 Common installation issues
+#### 90.4 Common installation issues
 
 This section describes some of the common problems that occur when installing Vim and suggests some solutions. It also contains answers to many installation questions.
 
 Q: I Do Not Have Root Privileges. How Do I Install Vim?(Unix)
 
 Use the following configuration command to install Vim in a directory called ***$HOME/vim***:
-```shell
+```sh
 ./configure --prefix=$HOME
 ```
 This gives you a personal copy of Vim. You need to put ***$HOME/bin*** in your path to execute the editor. Also see [install-home](#installing).
@@ -237,7 +221,7 @@ This gives you a personal copy of Vim. You need to put ***$HOME/bin*** in your p
 Q: The Colors Are Not Right on My Screen.(Unix)
 
 Check your terminal settings by using the following command in a shell:
-```shell
+```sh
 echo $TERM
 ```
 If the terminal type listed is not correct, fix it. For more hints, see [06.2](../getting_started/usr_06.md#062-no-or-wrong-colors). Another solution is to always use the GUI version of Vim, called gvim. This avoids the need for a correct terminal setup.
@@ -275,19 +259,19 @@ Q: Where Do I Find More Tips?
 
 See the Vim-online site: [http://vim.sf.net](http://vim.sf.net). There is an archive with hints from Vim users. You might also want to search in the [maillist-archive](http://www.vim.org/maillist.php).
 
-## 90.5 Uninstalling Vim
+#### 90.5 Uninstalling Vim
 
 In the unlikely event you want to uninstall Vim completely, this is how you do it.
 
-### UNIX
+###### UNIX
 
 When you installed Vim as a package, check your package manager to find out how to remove the package again.<br/>
 If you installed Vim from sources you can use this command:
-```shell
+```sh
 make uninstall
 ```
 However, if you have deleted the original files or you used an archive that someone supplied, you can't do this. Do delete the files manually, here is an example for when ***/usr/local*** was used as the root:
-```shell
+```sh
 rm -rf /usr/local/share/vim/vim82
 rm /usr/local/bin/eview
 rm /usr/local/bin/evim
@@ -323,7 +307,7 @@ rm /usr/local/man/man1/vimtutor.1
 rm /usr/local/man/man1/xxd.1
 ```
 
-### MS-WINDOWS
+###### MS-WINDOWS
 
 If you installed Vim with the self-installing archive you can run the ***uninstall-gui*** program located in the same directory as the other Vim programs, e.g. ***c:\vim\vim82***. You can also launch it from the Start menu if installed the Vim entries there. This will remove most of the files, menu entries and desktop shortcuts. Some files may remain however, as they need a Windows restart before being deleted.<br/>
 You will be given the option to remove the whole ***vim** directory. It probably contains your ***vimrc*** file and other runtime files that you created, so be careful.
@@ -334,5 +318,3 @@ The ***vim*** directory probably contains your ***vimrc*** file and other runtim
 
 ___
 ___
-
-Table of contents: [usr_toc.txt](../index.md)

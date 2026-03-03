@@ -1,23 +1,4 @@
-usr_02 The first steps in Vim `:help usr_02`
-
-This chapter provides just enough information to edit a file with Vim. Not well or fast, but you can edit. Take some time to practice with these commands, they form the base for what follows.
-
-- [02.1 Running Vim for the First Time](#021-running-vim-for-the-first-time)
-- [02.2 Inserting text](#022-inserting-text)
-- [02.3 Moving around](#023-moving-around)
-- [02.4 Deleting characters](#024-deleting-characters)
-- [02.5 Undo and Redo](#025-undo-and-redo)
-- [02.6 Other editing commands](#026-other-editing-commands)
-- [02.7 Getting out](#027-getting-out)
-- [02.8 Finding help](#028-finding-help)
-
-Next chapter: [usr_03.txt](usr_03.md) Moving around<br/>
-Previous chapter: [usr_01.txt](usr_01.md) About the manuals<br/>
-Table of contents: [usr_toc.txt](../index.md)
-
----
-
-## 02.1 Running Vim for the First Time
+#### 02.1 Running Vim for the First Time
 
 To start Vim, enter this command: `gvim file.txt`. In UNIX you can type this at any command prompt. If you are running Mocrosoft Windows, open a Command Prompt and enter the command. In either case, Vim starts editing a file called file.txt. Because this is a new file, you get a blank window. This is what your screen will look like:
 
@@ -35,7 +16,7 @@ To start Vim, enter this command: `gvim file.txt`. In UNIX you can type this at 
 
 The tilde(~) lines indicate lines not in the file. In other words, when Vim runs out of file to display, it displays tilde lines. At the bottom of the screen, a message line indicates the file is named file.txt and shows that you are creating a new file. The message information is temporary and other information overwrites it.
 
-### THE VIM COMMAND
+###### THE VIM COMMAND
 
 The gvim command causes the editor to create a new window for editing. If you use this command:
 
@@ -47,7 +28,7 @@ the editing occurs inside your command window. In other words, if you are runnin
 
 ---
 
-## 02.2 Inserting text
+#### 02.2 Inserting text
 
 The Vim editor is a modal editor. That means that the editor behaves differently, depending on which mode you are in. The two basic modes are called **Normal mode** and **Insert mode**. In Normal mode the characters you type are commands. In Insert mode the characters are inserted as text.
 
@@ -70,7 +51,7 @@ After typing **turtle** you press the `<Enter>`key to start a new line. Finally 
         +---------------------------------------+
 ```
 
-### WHAT IS THE MODE?
+###### WHAT IS THE MODE?
 
 To be able to see what mode you are in, type this command:
 
@@ -94,13 +75,13 @@ Now, if you type the `i` command Vim will display **--INSERT--** at the bottom o
 
 If you press `<Esc>` to go back to Normal mode the last line will be made blank.
 
-### GETTING OUT OF TROUBLE
+###### GETTING OUT OF TROUBLE
 
 One of the problems for Vim novices is mode confusion, which is caused by forgetting which mode you are in or by accidentally typing a command that switches modes. To get back to Normal mode, no matter what mode you are in, press the `<Esc>` key. Sometimes you have to press it twice. If Vim beeps back at you, you already are in Normal mode.
 
 ---
 
-## 02.3 Moving around
+#### 02.3 Moving around
 
 After you return to Normal mode, you can move around by using these keys:
 
@@ -113,7 +94,7 @@ After you return to Normal mode, you can move around by using these keys:
 
 At first, it may appear that these commands were chosen at random. After all, who ever heard of using `l` for right? But actually, these is a very good reason for these choices: Moving the cursor is the most common thing you do in an editor, and these keys are on the home row of your right hand. In other words, these commands are placed where you can type them the fastest (especially when you type with ten fingers).
 
-### Note
+###### Note
 
 You can alse move the cursor by using the arrow keys. If you do, however, you greatly slow down your editing because to press the arrow keys, you must move your hand from the text keys to the arrow keys. Considering that you might be doing it hundreds of times an hour, this can take a significant amount of time.
 
@@ -143,7 +124,7 @@ For Japanese users, Hiroshi Iwatani suggested using this:
 
 ---
 
-## 02.4 Deleting characters
+#### 02.4 Deleting characters
 
 To delete a character, move the cursor over it and type `x`. (This is a throwback to the old days of the typewriter, when you deleted things by typing xxxx over them.) Move the cursor to the beginning of the first line, for example, and type xxxxxxx (seven x's) to delete "A very ". The result should look like this:
 
@@ -175,7 +156,7 @@ This begins an insert (the i), inserts the words **A young**, and then exits ins
         +---------------------------------------+
 ```
 
-### DELETING A LINE
+###### DELETING A LINE
 
 To detete a whole line use the `dd` command. The following line will then move up to fill the gap:
 
@@ -189,7 +170,7 @@ To detete a whole line use the `dd` command. The following line will then move u
         +---------------------------------------+
 ```
 
-### DELETING A LINE BREAK
+###### DELETING A LINE BREAK
 
 In Vim you can join two lines together, which means that the line break between them is deleted. The `J` command does this.
 Take these two lines:
@@ -207,7 +188,7 @@ Move the cursor to the first line and press `J`:
 
 ---
 
-## 02.5 Undo and Redo
+#### 02.5 Undo and Redo
 
 Suppose you delete too much. Well, you can type it in again, but an easier way exists. The `u` command undoes the last edit. Take a look at this in action: After using `dd` to delete the first line, `u` brings it back.
 
@@ -245,13 +226,13 @@ The next `u` command gives you the **u**, and so on:
         A young intelligent turtle
 ```
 
-### Note
+###### Note
 
 If you type `u` twice, and the result is that you get the same text back, you have Vim configured to work **Vi compatible**. Look here to fix this: [not-compatible](usr_01.md#not-compatible).
 
 This text assumes you work **The Vim Way**. You might prefer to use the good old **Vi way**, but you will have to watch out for small differences in the text then.
 
-### REDO
+###### REDO
 
 If you undo too many times, you can press `CTRL-R` (redo) to reverse the preceding command. In other words, it undoes the undo. To see this in action, press `CTRL-R` twice. The character **A** and the space after it disappear:
 
@@ -279,13 +260,13 @@ The `U` command is a change by itself, which the `u` command undoes and `CTRL-R`
 
 ---
 
-## 02.6 Other editing commands
+#### 02.6 Other editing commands
 
 Vim has a large number of commands to change the text. See [Q_in](.) and below.
 
 Here are a few often used ones.
 
-### APPENDING
+###### APPENDING
 
 The `i` command inserts a character before the character under the cursor.
 
@@ -315,7 +296,7 @@ to append three exclamation points after the **e** in turtle:
         and that's not saying much for the turtle!!!
 ```
 
-### OPENING UP A NEW LINE
+###### OPENING UP A NEW LINE
 
 The `o` command creates a new, empty line below the cursor and puts Vim in Insert mode. Then you can type the text for the new line.
 
@@ -342,21 +323,21 @@ The result is:
 
 The `O` command (uppercase) opens a line above the cursor.
 
-### USING A COUNT
+###### USING A COUNT
 
 Suppose you want to move up nine lines. You can type `kkkkkkkkk` or you can enter command `9k`. In fact, you can precede many commands with a number. Earlier in this chapter, for instance, you added three exclamation points to the end of a line by typing `a!!!<Esc>`. Another wat to do this is to use the command `3a!<Esc>`. Thr count of **3** tells the command that follows to triple its effect. Similarly, to delete three characters, use the command `3x`. The count always comes before the command it applies to.
 
 ---
 
-## 02.7 Getting out
+#### 02.7 Getting out
 
 To exit, use the `ZZ` command. This command writes the file and exits.
 
-### Note:
+###### Note:
 
 Unlike many other editors, Vim does not automatically make a backup file. If you type `ZZ`, your changes are committed and there's no turning back. You can configure the Vim editor to produce backup files;see [07.4](../usr_07#074-backup-files).
 
-### DISCARDING CHANGES
+###### DISCARDING CHANGES
 
 Sometimes you will make a sequence of changes and suddenly realize you were better off before you started. Not to worry; Vim has a quit-and-throw-things-away command. It is:
 
@@ -380,7 +361,7 @@ If you want to continue editing with Vim: The `:e!` command reloads the original
 
 ---
 
-## 02.8 Finding help
+#### 02.8 Finding help
 
 Everything you always wanted to know can be found in the Vim help files. Don't be afraid to ask!
 
@@ -484,7 +465,7 @@ You can use the error ID at the start to find help about it:
         :help E37
 ```
 
-### help-summary
+###### help-summary
 
 1. Use `Ctrl-D` after typing a topic and let Vim show all avaiable topics.
    Or press Tab to complete:
@@ -821,6 +802,5 @@ SomeTimes, however, those error codes are not described, but rather are listed a
 
 takes you to the `:function` command
 
----
-
-Next chapter: [usr_03.txt](usr_03.md) Moving around
+___
+___

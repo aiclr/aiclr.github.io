@@ -1,16 +1,4 @@
-usr_01 About the manuals `:help usr_01`
-
-This chapter introduces the manials available with Vim. Read this to know the conditions under which the commands are explained.
-
-- [01.1 Two manuals](#011-two-manuals)
-- [01.2 Vim installed](#012-vim-installed)
-- [01.3 Using the Vim tutor](#013-using-the-vim-tutor)
-- [01.4 Copyright](#014-copyright)
-
-Next chapter: [usr_02.txt](usr_02.md) The first steps in Vim<br/>
-Table of contents: [usr_toc.txt](../index.md)
-
-## 01.1 Two manuals
+#### 01.1 Two manuals
 
 The Vim docymentation consists of two parts:
 
@@ -21,7 +9,7 @@ The Vim docymentation consists of two parts:
 
 The notation used in these manuals is explained here: [notation](.)
 
-### JUMPING AROUND
+###### JUMPING AROUND
 
 The text contains hyperlinks between the two parts, allowing you to quickly jump between the descripting of an editing task and a precise explanation of the commands and options used for it. Use these two commands:
 
@@ -42,11 +30,11 @@ The bars and stars are usually hidden with the conceal feature. They also use hl
 
 ---
 
-## 01.2 Vim installed
+#### 01.2 Vim installed
 
 Most of the manuals assume that Vim has bean properly installed. If you didn't do that yet, or if Vim doesn't run properly (e.g., files can't be found or in the GUI the menus do not show up) first read the chapter on installation: [usr_90.txt](../making_vim_run/usr_90.md)
 
-### not-compatible
+###### not-compatible
 
 The manuals often assume you are using Vim with Vi-compatibility switched off. For most commands this doesn't matter, but sometimes it is important, e.g., for multi-level undo. An easy way to make sure you are using a nice setup is to copy the example vimrc file. By doing this inside Vim you don't have to check out where it is located. How to do this depends on the system you are using:
 
@@ -86,15 +74,15 @@ If your file is not in the list, check its location and name. If it is in the li
 
 For more info see [vimrc](.) and [compatible-default](.).
 
-### Note
+###### Note
 
 This manual is about using Vim in the normal way. There is an alternaive called "evim" (easy Vim). This is still Vim, but used in a way that resembles a click-and-type editor like Notepad. It always stays in Insert mode, thus it feels very different. It is not explained in the user manual, since it should be mostly self-explanatory. See [evim-keys](.) for details.
 
 ---
 
-## 01.3 Using the Vim tutor
+#### 01.3 Using the Vim tutor
 
-### tutor vimtutor
+###### tutor vimtutor
 
 Instead of reading the text (boring!) you can use the vimtutor to learn your first Vim commands. This is a 30-minute tytorial that teaches the most basic Vim functionality hands-on.
 
@@ -134,15 +122,15 @@ On other systems, you have to do a little work:
 
 ---
 
-## 01.4 Copyright
+#### 01.4 Copyright
 
-### manual-copyright
+###### manual-copyright
 
 The Vim user manual and reference manual are Copyright (c) 1988-2003 by Bram Moolenaar. This material may be distributed only subject to the terms and conditions set forth in the Open Publication License, v1.0 or later. The latest version is presently available at:[http://www.opencontent.org/openpub/](http://www.opencontent.org/openpub/).
 
 People who contribute to the manuals must agree with the above copyright notice.
 
-### frombook
+###### frombook
 
 Parts of the user manual come from the book 《Vi IMproved - Vim》 by Steve Oualline (published by New Riders Publishing, ISBN: 0735710015). The Open Publication License applies to this book. Only selected parts are included and these have been modified (e.g., by removing the pictures, updating the text for Vim 6.0 and later, fixing mistakes). The omission of the frombook tag does not mean that the text does not come from the book.
 
@@ -150,6 +138,5 @@ Many thanks to Steve Oualline and New Riders for creating this book and publishi
 
 If you make money through selling the manuals, you are strongly encouraged to donate part of the profit to help AIDS victims in Uganda. See [iccf](.).
 
----
-
-Next chapter: [usr_02.txt](usr_02.md) The first steps in Vim
+___
+___

@@ -1,25 +1,4 @@
-usr_08 Splitting windows `:help usr_08`
-
-Display two different files above each other. Or view two locations in the file at the same time. See the difference between two files by putting them side by side. All this is possible with split windows.
-
-- [08.1    Split a window](#081-split-a-window)
-- [08.2    Split a window on another file](#082-split-a-window-on-another-file)
-- [08.3    Window size](#083-window-size)
-- [08.4    Vertical splits](#084-vertical-splits)
-- [08.5    Moving windows](#085-moving-windows)
-- [08.6    Commands for all windows](#086-commands-for-all-windows)
-- [08.7    Viewing differences with vimdiff](#087-viewing-differences-with-vimdiff)
-- [08.8    Various](#088-various)
-- [08.9    Tab pages](#089-tab-pages)
-
-Next chapter: [usr_09.txt](usr_09.md) Using the GUI<br>
-Previous chapter: [usr_07.txt](usr_07.md) Editing more than one file<br>
-Table of contents: [usr_toc.txt](../index.md)
-
-___
-___
-
-## 08.1 Split a window
+#### 08.1 Split a window
 
 The easiest way to open a new window is to use the following command:
 ```text
@@ -43,7 +22,7 @@ The two windows allow you to view two parts of the same file. For example, you c
 
 The `CTRL-W` w command can be used to jump between the windows. If you are in the top window, `CTRL-W` w jumps to the window below it. If you are in the bottom window it will jump to the first window. (`CRTL-W CTRL-W` does the same thing, in case you let go of the CTRL key a bit later.)
 
-### CLOSE THE WINDOW
+##### CLOSE THE WINDOW
 
 To close a window, use the command:
 ```text
@@ -51,7 +30,7 @@ To close a window, use the command:
 ```
 Actually, any command that quits editing a file works, like `:quit` and `ZZ`. But `:close` prevents you from accidentally exiting Vim when you close the last window.
 
-### CLOSING ALL OTHER WINDOWS
+##### CLOSING ALL OTHER WINDOWS
 
 If you have opened a whole bunch of windows, but now want to concentrate on one of them, this command will be useful:
 ```text
@@ -62,7 +41,7 @@ This closes all windows, except for the current one. If any of the other windows
 ___
 ___
 
-## 08.2 Split a window on another file
+#### 08.2 Split a window on another file
 
 The following command opens a second window and starts editing the given file:
 ```text
@@ -90,7 +69,7 @@ You can repeat the `:split` and `:new` commands to create as many windows as you
 ___
 ___
 
-## 08.3 Window size
+#### 08.3 Window size
 
 The `:split` command can take a number argument. If specified, this will be the height of the new window. For example, the following opens a new window three lines high and starts editing the file alpha.c:
 ```text
@@ -115,11 +94,11 @@ To set the window height to a specified number of lines:
 That's: a number `{height}`, `CTRL-W` and then an under score (the `-` key with `Shift` on English-US keyboards).<br>
 To make a window as high as it can be, use the `CTRL-W _` command without a count.
 
-### USING THE MOUSE
+##### USING THE MOUSE
 
 In Vim you can do many things very quickly from the keyboard. Unfortunately, the window resizing commands requite quite a bit of typing. In this case, using the mouse is faster. Position the mouse pointer on a status line. Now press the left mouse button and drag. The status line will move, thus making the window on one side higher and the other smaller.
 
-### OPTIONS
+##### OPTIONS
 
 The [winheight](../../options.md#winheight-wh-E591) option can be set a minimal desired height of a window and [winminheight](../../options.md#winminheight-wmh) to a hard minimum height.<br>
 Likewise, there is [winwidth](../../options.md#winwidth-wiw-E592) for the minimal desired width and [winminwidth](../../options.md#winminwidth-wmw) for the hard minimum width.<br>
@@ -128,7 +107,7 @@ The [equalalways](../../options.md#equalalways-ea-noequalalways-noea) option, wh
 ___
 ___
 
-## 08.4 Vertical splits
+#### 08.4 Vertical splits
 
 The `:split` command creates the new window above the current one. To make the window appear at the left side, use:
 ```text
@@ -157,7 +136,7 @@ There is also the `:vnew` command, to open a vertically split window on a new, e
 ```
 The `:vertical` command can be inserted before another command that splits a window. This will cause that command to split the window vertically instead of horizontally. (If the command doesn't split a window, it works unmodified.)
 
-### MOVING BETWEEN WINDOWS
+##### MOVING BETWEEN WINDOWS
 
 Since you can split windows horizontally as much as you like, you can create almost any layout of windows. Then you can use these commands to move between them:
 ```text
@@ -175,7 +154,7 @@ More commands to move to other windows: [Q_wi](../../quickref.md#q_wi-multi-wind
 ___
 ___
 
-## 08.5 Moving windows
+#### 08.5 Moving windows
 
 You have split a few windows, but now they are in the wrong place. Then you need a command to move the window somewhere else. For example, you have three windows like this:
 ```text
@@ -235,7 +214,7 @@ The other three similar commands (you can probably guess these now):
 ___
 ___
 
-## 08.6 Commands for all windows
+#### 08.6 Commands for all windows
 
 When you have several windows open and you want to quit Vim, you can close each window separately. A quicker way is using this command:
 ```text
@@ -259,7 +238,7 @@ Finally, there is a command that quits Vim and throws away all changes:
 ```
 Be careful, there is no way to undo this command!
 
-### OPENING A WINDOW FOR ALL ARGUMENTS
+##### OPENING A WINDOW FOR ALL ARGUMENTS
 
 To make Vim open a window for each file, start it with the `-o` argument:
 ```text
@@ -286,7 +265,7 @@ When Vim is already running, the `:all` command opens a window for each file in 
 ___
 ___
 
-## 08.7 Viewing differences with vimdiff
+#### 08.7 Viewing differences with vimdiff
 
 There is a special way to start Vim, which shows the differences between two files. Let's take a file *main.c* and insert a few characters in one line. Write this file with the [backup] option set, so that the backup file *main.c~* will contain the previous version of the file.<br>
 Type this command in a shell (not in Vim):
@@ -320,13 +299,13 @@ The lines that were not modified have been collapsed into one line. This is call
 The line marked with *<- changed line* is highlighted, and the inserted text is displayed with another color. This clearly shows what the difference is between the two files.<br>
 The line that was deleted is displayed with `---` in the main.c window. See the *<- deleted line* marker in the picture. These characters are not really there. They just fill up main.c, so that it displays the same number of lines as the other window.
 
-### THE FOLD COLUMN
+##### THE FOLD COLUMN
 
 Each window has a column on the left with a slightly different background. In the picture above these are indicated with *VV*. You notice there is a plus character there, in front of each closed fold. Move the mouse pointer to that plus and click the left button. The fold will open, and you can see the text that it contains.<br>
 The fold column contains a minus sign for an open fold. If you click on this -, the fold will close.<br>
 Obviously, this only works when you have a working mouse. You can also use `zo` to open a fold and `zc` to close it.
 
-### DIFFING IN VIM
+##### DIFFING IN VIM
 
 Another way to start in diff mode can be done from inside Vim. Edit the `main.c` file, then make a split and show the differences:
 ```text
@@ -343,7 +322,7 @@ If you have a patch or diff file, you can use the third way to start diff mode. 
 WARNING: The patch file must contain only one patch, for the file you are editing. Otherwise you will get a lot of error messages, and some files might be patched unexpectedly.<br>
 The patching will only be done to the copy of the file in Vim. The file on your harddisk will remain unmodified (until you decide to write the file).
 
-### SCROLL BINDING
+##### SCROLL BINDING
 
 When the files have more changes, you can scroll in the usual way. Vim will try to keep both the windows start at the same position, so you can easily see the differences side by side.<br>
 When you don't want this for a moment, use this command:
@@ -351,7 +330,7 @@ When you don't want this for a moment, use this command:
         :set noscrollbind
 ```
 
-### JUMPING TO CHANGES
+##### JUMPING TO CHANGES
 
 When you have disabled folding in some way, it may be difficult to find the changes. Use this command to jump forward to the next change:
 ```text
@@ -363,7 +342,7 @@ To go the other way use:
 ```
 Prepended a count to jump further away.
 
-### REMOVING CHANGES
+##### REMOVING CHANGES
 
 You can move text from one window to the other. This either removes differences or adds new ones. Vim doesn't keep the highlighting updated in all situations. To update it use this command:
 ```text
@@ -385,7 +364,7 @@ For details about diff mode, see [vimdiff](../../diff.md)
 ___
 ___
 
-## 08.8 Various
+#### 08.8 Various
 
 The [laststatus](../../options.md#laststatus-ls) option can be used to specify when the last window has a statusline:
 ```text
@@ -411,7 +390,7 @@ When splitting a window you can prepend a modifier command to tell where the win
 ___
 ___
 
-## 08.9 Tab pages
+#### 08.9 Tab pages
 
 You will have noticed that windows never overlap. That means you quickly run out of screen space. The solution for this is called Tab pages.
 
@@ -486,5 +465,3 @@ For more information about tab pages see [tab-page](../../tabpage.md).
 
 ___
 ___
-
-Next chapter: [usr_09.txt](usr_09.md) Using the GUI
